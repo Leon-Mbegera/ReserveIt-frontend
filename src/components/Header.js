@@ -1,15 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const Header = () => {
+const Header = () => (
   <header>
     <nav>
       <div>
         <Link to="/signup">sign up</Link>
-        <Link to="/signin">sign up</Link>
+        <Link to="/signin">sign in</Link>
       </div>
     </nav>
-  </header>;
-};
+  </header>
+);
 
 export default Header;

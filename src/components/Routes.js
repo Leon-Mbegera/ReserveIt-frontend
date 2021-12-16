@@ -7,7 +7,7 @@ const Router = () => (
   <BrowserRouter>
     <Header />
     <Routes>
-      <Route exact path="/signin" element={SignIn} />
+      <Route exact path="/signin" element={<SignIn />} />
     </Routes>
   </BrowserRouter>
 );
