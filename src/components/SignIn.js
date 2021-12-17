@@ -23,9 +23,9 @@ const SignIn = () => {
   return (
     <form onSubmit={handleCredentials}>
       <label htmlFor="user-email">Email</label>
-      <input type="email" id="user-email" value="" onChange={(e) => handleEmail(e)} />
+      <input type="email" id="user-email" onChange={(e) => handleEmail(e)} />
       <label htmlFor="user-password">Password</label>
-      <input type="password" id="user-password" value="" onChange={(e) => handlePassword(e)} />
+      <input type="password" id="user-password" onChange={(e) => handlePassword(e)} />
       <button type="submit">Sign in</button>
     </form>
   );
