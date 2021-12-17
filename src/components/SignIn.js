@@ -22,10 +22,10 @@ const SignIn = () => {
 
   return (
     <form onSubmit={handleCredentials}>
-      <label htmlFor="email">Email</label>
-      <input type="email" id="email" value="" onChange={(e) => handleEmail(e)} />
-      <label htmlFor="password">Password</label>
-      <input type="password" id="password" value="" onChange={(e) => handlePassword(e)} />
+      <label htmlFor="user-email">Email</label>
+      <input type="email" id="user-email" value="" onChange={(e) => handleEmail(e)} />
+      <label htmlFor="user-password">Password</label>
+      <input type="password" id="user-password" value="" onChange={(e) => handlePassword(e)} />
       <button type="submit">Sign in</button>
     </form>
   );
