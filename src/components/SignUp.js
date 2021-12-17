@@ -33,15 +33,15 @@ const SignUp = () => {
   };
 
   return (
-    <form onSubmit={handleCredentials}>
+    <form autoComplete="off" onSubmit={handleCredentials}>
       <label htmlFor="name">Username</label>
-      <input type="text" id="name" value="" onChange={(e) => handleUsername(e)} />
+      <input type="text" id="name" onChange={(e) => handleUsername(e)} />
       <label htmlFor="email">Email</label>
-      <input type="email" id="email" value="" onChange={(e) => handleEmail(e)} />
+      <input type="email" id="email" onChange={(e) => handleEmail(e)} />
       <label htmlFor="password">Password</label>
-      <input type="password" id="password" value="" onChange={(e) => handlePassword(e)} />
+      <input type="password" id="password" onChange={(e) => handlePassword(e)} />
       <label htmlFor="password-confirm">Confirm password</label>
-      <input type="password" id="user-password" value="" onChange={(e) => handleConfirm(e)} />
+      <input type="password" id="user-password" onChange={(e) => handleConfirm(e)} />
       <button type="submit">Sign up</button>
     </form>
   );
