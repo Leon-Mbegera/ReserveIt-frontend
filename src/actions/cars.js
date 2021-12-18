@@ -45,5 +45,6 @@ const fetchEachCar = (id) => (dispatch) => {
 
 export {
   FETCH_CARS_REQUEST, FETCH_CARS_SUCCESS, FETCH_CAR_INFO,
-  FETCH_CARS_FAILURE, fetchCarsRequest, fetchCarInfo, fetchCarsSuccess, fetchCarsFailure,
+  FETCH_CARS_FAILURE, fetchCarsRequest, fetchCarInfo, fetchCarsSuccess,
+  fetchCarsFailure, fetchAllCars, fetchEachCar,
 };
