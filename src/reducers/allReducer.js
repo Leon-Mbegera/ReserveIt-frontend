@@ -17,7 +17,7 @@ const allReducer = (state = [], action) => {
     case FETCH_CARS_FAILURE:
       return {
         ...state,
-        error: action.payload,
+        payload: action.payload,
       };
     default:
       return state;
