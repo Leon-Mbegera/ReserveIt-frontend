@@ -34,3 +34,16 @@ const fetchAllCars = () => (dispatch) => {
     dispatch(fetchCarsFailure(err));
   });
 };
+
+const fetchEachCar = (id) => (dispatch) => {
+  const endpoint = `http://localhost:3000/cars/${id}`;
+  axios.get(endpoint).then((response) => {
+    const car = response.data;
+    dispatch(fetchCarInfo(car));
+  });
+};
+
+export {
+  FETCH_CARS_REQUEST, FETCH_CARS_SUCCESS, FETCH_CAR_INFO,
+  FETCH_CARS_FAILURE, fetchCarsRequest, fetchCarInfo, fetchCarsSuccess, fetchCarsFailure,
+};
