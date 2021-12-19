@@ -1,11 +1,18 @@
 import { FETCH_CAR_INFO } from '../actions/index';
 
-const singleReducer = (state = [], action) => {
+const initialState = {
+  data: [],
+  error: '',
+  loading: true,
+};
+
+const singleReducer = (state = initialState, action) => {
   switch (action.type) {
     case FETCH_CAR_INFO:
       return {
-        ...state,
-        payload: action.payload,
+        data: [...action.payload],
+        error: '',
+        loading: false,
       };
     default:
       return state;
