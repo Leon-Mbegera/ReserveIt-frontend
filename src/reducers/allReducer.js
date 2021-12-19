@@ -3,21 +3,29 @@ import {
   FETCH_CARS_FAILURE,
 } from '../actions/index';
 
-const allReducer = (state = [], action) => {
+const initialState = {
+  data: [],
+  error: '',
+  loading: true,
+};
+
+const allReducer = (state = initialState, action) => {
   switch (action.type) {
     case FETCH_CARS_REQUEST:
       return {
-        ...state,
+        ...initialState,
       };
     case FETCH_CARS_SUCCESS:
       return {
-        ...state,
-        payload: action.payload,
+        data: [...action.payload],
+        error: '',
+        loading: false,
       };
     case FETCH_CARS_FAILURE:
       return {
-        ...state,
-        payload: action.payload,
+        data: [],
+        error: 'failed!',
+        loading: false,
       };
     default:
       return state;
