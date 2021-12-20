@@ -15,13 +15,13 @@ const AllCars = () => {
 
   return (
     <main>
-      {cars.data.map((car, id) => (
+      {cars.data.map((car) => (
         <div key={`cars-${car.id}`}>
           <img src={car.image} alt="car" />
           <p>{car.model}</p>
           <p>{car.mileage}</p>
           <p>{car.price}</p>
-          <Link to={`/cars/${id}`}>view</Link>
+          <Link to={`/cars/${car.id}`}>view</Link>
         </div>
       ))}
     </main>

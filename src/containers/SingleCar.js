@@ -16,14 +16,12 @@ const SingleCar = () => {
 
   return (
     <div>
-      {car.data.map((each) => (
-        <div key={`car-${car.id}`}>
-          <img src={each.image} alt="car" />
-          <p>{each.model}</p>
-          <p>{each.mileage}</p>
-          <p>{each.price}</p>
-        </div>
-      ))}
+      <div key={`car-${car.id}`}>
+        <img src={car.image} alt="car" />
+        <p>{car.model}</p>
+        <p>{car.mileage}</p>
+        <p>{car.price}</p>
+      </div>
     </div>
   );
 };
