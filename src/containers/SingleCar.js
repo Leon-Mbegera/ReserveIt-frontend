@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { fetchEachCar } from '../actions/index';
+import ReservationForm from '../components/Form';
 
 const SingleCar = () => {
   const { car } = useSelector((state) => state);
@@ -22,6 +23,7 @@ const SingleCar = () => {
         <p>{car.mileage}</p>
         <p>{car.price}</p>
       </div>
+      <ReservationForm car={car} />
     </div>
   );
 };

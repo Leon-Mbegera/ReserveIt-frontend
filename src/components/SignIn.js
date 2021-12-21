@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import axios from 'axios';
+// import axios from 'axios';
 
 const SignIn = () => {
   const [email, setEmail] = useState('');
@@ -14,9 +14,19 @@ const SignIn = () => {
   );
 
   const handleCredentials = () => {
-    axios.post('http://www.localhost:3000/auth/signin', {
-      email,
-      password,
+    // axios.post('http://www.localhost:3000/auth/signin', {
+    //   email,
+    //   password,
+    // }).;
+    fetch('http://www.localhost:3000/auth/signin', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        email,
+        password,
+      }),
     });
   };
 

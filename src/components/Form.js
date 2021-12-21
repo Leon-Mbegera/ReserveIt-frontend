@@ -1,4 +1,5 @@
 import { useState } from 'react';
+// import axios from 'axios';
 
 const ReservationForm = () => {
   const [agreement, setAgreement] = useState('');
@@ -11,15 +12,39 @@ const ReservationForm = () => {
 
   const handleDate = (e) => setDate(e.target.value);
 
+  const postData = {
+    car_id: 7,
+    agreement,
+    city,
+    date,
+  };
+
+  fetch('http://localhost:3000/reservations', {
+    method: 'POST',
+    headers: {
+      'Content-type': 'application/json',
+    },
+    body: JSON.stringify(postData),
+  });
+  // .then((response) => response.json())
+  // .then((data) => {
+  //   console.log("Success:", data)
+  // }).then((error) => {
+  //   console.log("Error:", error)
+  // })
+
+  return (
     <div>
       <form>
         <input type="text" placeholder="username" />
         <input type="text" placeholder="model" />
-        <textarea name="agreement" />
-        <input type="text" />
+        <textarea name="agreement" onChange={(e) => handleAgreement(e)} />
+        <input type="text" onChange={(e) => handleCity(e)} />
+        <input type="date" onChange={(e) => handleDate(e)} />
         <button type="button">Reserve</button>
       </form>
-    </div>;
+    </div>
+  );
 };
 
 export default ReservationForm;
