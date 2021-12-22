@@ -2,7 +2,6 @@ import PropTypes from 'prop-types';
 
 const CarReservations = ({ reservations }) => (
   <div>
-    {/* {console.log('this one', reservations)} */}
     {reservations && reservations.length ? (
       reservations.map((object) => (
         <div key={object.id}>

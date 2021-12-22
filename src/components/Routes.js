@@ -14,6 +14,7 @@ const Router = () => (
       <Route exact path="/signin" element={<SignIn />} />
       <Route path="/" element={<AllCars />} />
       <Route exact path="/cars/:id" element={<SingleCar />} />
+      <Route exact path="/MyReservations" element={<MyReservations />} />
     </Routes>
   </BrowserRouter>
 );
