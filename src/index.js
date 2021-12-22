@@ -30,9 +30,3 @@ ReactDOM.render(
 // };
 
 // export default FetchCarReservations;
-fetch('http://localhost:3000/reservations/7')
-  .then((response) => response.json())
-  .then((data) => {
-    const reservations = data;
-    console.log('success', reservations);
-  });

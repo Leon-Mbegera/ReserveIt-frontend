@@ -30,26 +30,19 @@ const ReservationForm = ({ car }) => {
     });
   };
 
-  const GetCarReservations = () => {
-    fetch('http://localhost:3000/reservations/7')
-      .then((response) => response.json())
-      .then((data) => {
-        const reservations = data;
-        return reservations;
-      });
-  };
-
   return (
-    <div>
-      <form>
-        <input type="text" placeholder="username" />
-        <input type="text" placeholder="model" value={car.model} />
-        <textarea name="agreement" onChange={(e) => handleAgreement(e)} />
-        <input type="text" onChange={(e) => handleCity(e)} />
-        <input type="date" onChange={(e) => handleDate(e)} />
-        <button type="button" onClick={PostReservationDetails}>Reserve</button>
-      </form>
-    </div>
+    <section>
+      <div>
+        <form>
+          <input type="text" placeholder="username" />
+          <input type="text" placeholder="model" value={car.model} />
+          <textarea name="agreement" onChange={(e) => handleAgreement(e)} />
+          <input type="text" onChange={(e) => handleCity(e)} />
+          <input type="date" onChange={(e) => handleDate(e)} />
+          <button type="button" onClick={PostReservationDetails}>Reserve</button>
+        </form>
+      </div>
+    </section>
   );
 };
 
