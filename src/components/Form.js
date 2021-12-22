@@ -20,19 +20,24 @@ const ReservationForm = ({ car }) => {
     date,
   };
 
-  fetch('http://localhost:3000/reservations', {
-    method: 'POST',
-    headers: {
-      'Content-type': 'application/json',
-    },
-    body: JSON.stringify(postData),
-  });
-  // .then((response) => response.json())
-  // .then((data) => {
-  //   console.log("Success:", data)
-  // }).then((error) => {
-  //   console.log("Error:", error)
-  // })
+  const PostReservationDetails = () => {
+    fetch('http://localhost:3000/reservations', {
+      method: 'POST',
+      headers: {
+        'Content-type': 'application/json',
+      },
+      body: JSON.stringify(postData),
+    });
+  };
+
+  const GetCarReservations = () => {
+    fetch('http://localhost:3000/reservations/7')
+      .then((response) => response.json())
+      .then((data) => {
+        const reservations = data;
+        return reservations;
+      });
+  };
 
   return (
     <div>
@@ -42,7 +47,7 @@ const ReservationForm = ({ car }) => {
         <textarea name="agreement" onChange={(e) => handleAgreement(e)} />
         <input type="text" onChange={(e) => handleCity(e)} />
         <input type="date" onChange={(e) => handleDate(e)} />
-        <button type="button">Reserve</button>
+        <button type="button" onClick={PostReservationDetails}>Reserve</button>
       </form>
     </div>
   );
