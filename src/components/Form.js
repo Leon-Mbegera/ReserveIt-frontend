@@ -1,5 +1,4 @@
 import { useState } from 'react';
-// import axios from 'axios';
 import PropTypes from 'prop-types';
 
 const ReservationForm = ({ car }) => {
@@ -47,7 +46,13 @@ const ReservationForm = ({ car }) => {
 };
 
 ReservationForm.propTypes = {
-  car: PropTypes.objectOf(PropTypes.string).isRequired,
+  car: PropTypes.shape({
+    id: PropTypes.number,
+    image: PropTypes.string,
+    model: PropTypes.string,
+    mileage: PropTypes.string,
+    price: PropTypes.number,
+  }).isRequired,
 };
 
 export default ReservationForm;

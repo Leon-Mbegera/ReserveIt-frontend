@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { fetchEachCar } from '../actions/index';
@@ -8,6 +8,7 @@ import GetCarReservations from './APIs';
 
 const SingleCar = () => {
   const { car } = useSelector((state) => state);
+  const [reserve, setReserve] = useState('');
   const dispatch = useDispatch();
   const { id } = useParams();
 
@@ -16,6 +17,13 @@ const SingleCar = () => {
       fetchEachCar(id),
     );
   }, []);
+
+  useEffect(() => {
+    GetCarReservations(id)
+      .then((response) => {
+        setReserve(response);
+      });
+  }, [id]);
 
   return (
     <div>
@@ -26,7 +34,7 @@ const SingleCar = () => {
         <p>{car.price}</p>
       </div>
       <ReservationForm car={car} />
-      <CarReservations reservations={() => GetCarReservations(id)} />
+      <CarReservations reservations={reserve} />
     </div>
   );
 };
