@@ -5,6 +5,7 @@ import SingleCar from '../containers/SingleCar';
 import Header from './Header';
 import SignIn from './SignIn';
 import SignUp from './SignUp';
+import MyReservations from './MyReservations';
 
 const Router = () => (
   <BrowserRouter>
