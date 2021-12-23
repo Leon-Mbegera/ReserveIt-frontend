@@ -14,10 +14,6 @@ const SignIn = () => {
   );
 
   const handleCredentials = () => {
-    // axios.post('http://www.localhost:3000/auth/signin', {
-    //   email,
-    //   password,
-    // }).;
     fetch('http://www.localhost:3000/auth/signin', {
       method: 'POST',
       headers: {

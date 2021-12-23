@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 import { fetchEachCar } from '../actions/index';
 import ReservationForm from '../components/Form';
 import CarReservations from '../components/CarReservations';
-import GetCarReservations from './APIs';
+import { GetCarReservations } from './APIs';
 
 const SingleCar = () => {
   const { car } = useSelector((state) => state);
