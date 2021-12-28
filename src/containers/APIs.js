@@ -16,4 +16,18 @@ const GetMyReservations = async () => {
   return myreservations;
 };
 
-export { GetCarReservations, GetMyReservations };
+const UserSignIn = async (email, password) => {
+  const response = await fetch('http://localhost:3000/auth/signin', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: {
+      email,
+      password,
+    },
+  });
+
+  const accessToken = await response.json();
+  return accessToken;
+};
+
+export { GetCarReservations, GetMyReservations, UserSignIn };
