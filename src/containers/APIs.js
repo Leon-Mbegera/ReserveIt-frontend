@@ -1,20 +1,23 @@
 const GetCarReservations = async (id) => {
+  const accessToken = localStorage.getItem('accessToken');
   const response = await fetch(`http://localhost:3000/reservations/${id}`, {
     method: 'GET',
-    headers: { 'Content-Type': 'application/json' },
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${accessToken}`,
+    },
   });
   const reservations = await response.json();
   return reservations;
 };
 
 const GetMyReservations = async () => {
-  // const accessToken = localStorage.getItem('accessToken');
+  const accessToken = localStorage.getItem('accessToken');
   const response = await fetch('http://localhost:3000/reservations', {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
-      // Authorization: `Bearer ${accessToken}`,
-
+      Authorization: `Bearer ${accessToken}`,
     },
   });
   const myreservations = await response.json();
