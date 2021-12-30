@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import PropTypes from 'prop-types';
 
-const ReservationForm = ({ car }) => {
+const ReservationForm = ({ car, user }) => {
   const [agreement, setAgreement] = useState('');
   const [city, setCity] = useState('');
   const [date, setDate] = useState('');
@@ -33,8 +33,8 @@ const ReservationForm = ({ car }) => {
     <section>
       <div>
         <form>
-          <input type="text" placeholder="username" />
-          <input type="text" placeholder="model" value={car.model} />
+          <input type="text" placeholder="username" value={user.username} />
+          <input type="text" placeholder="model" value={car.model} readOnly />
           <textarea name="agreement" onChange={(e) => handleAgreement(e)} />
           <input type="text" onChange={(e) => handleCity(e)} />
           <input type="date" onChange={(e) => handleDate(e)} />
@@ -53,6 +53,7 @@ ReservationForm.propTypes = {
     mileage: PropTypes.string,
     price: PropTypes.number,
   }).isRequired,
+  user: PropTypes.objectOf.isRequired,
 };
 
 export default ReservationForm;

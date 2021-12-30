@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 import { UserSignUp } from '../containers/APIs';
+import { saveCurrentUser } from '../actions/index';
 
 const SignUp = () => {
   const [username, setName] = useState('');
@@ -8,6 +10,7 @@ const SignUp = () => {
   const [password, setPassword] = useState('');
   const [confirm, setConfirm] = useState('');
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const handleUsername = (e) => (
     setName(e.target.value)
@@ -28,7 +31,8 @@ const SignUp = () => {
   const Authorization = (data) => {
     if (data.token) {
       localStorage.setItem('accessToken', data.token);
-      navigate('/');
+      dispatch(saveCurrentUser(data.username));
+      navigate('/models');
     }
   };
 

@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { UserSignIn } from '../containers/APIs';
-// import axios from 'axios';
+import { saveCurrentUser } from '../actions/index';
 
 const SignIn = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const handleEmail = (e) => (
     setEmail(e.target.value)
@@ -17,9 +19,10 @@ const SignIn = () => {
   );
 
   const Authorization = (data) => {
-    if (data.token) {
+    if (data) {
       localStorage.setItem('accessToken', data.token);
-      navigate('/');
+      dispatch(saveCurrentUser(data.username));
+      navigate('/models');
     }
   };
 

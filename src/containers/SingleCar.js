@@ -8,6 +8,7 @@ import { GetCarReservations } from './APIs';
 
 const SingleCar = () => {
   const { car } = useSelector((state) => state);
+  const { user } = useSelector((state) => state);
   const [reserve, setReserve] = useState('');
   const dispatch = useDispatch();
   const { id } = useParams();
@@ -33,7 +34,7 @@ const SingleCar = () => {
         <p>{car.mileage}</p>
         <p>{car.price}</p>
       </div>
-      <ReservationForm car={car} />
+      <ReservationForm car={car} user={user} />
       <CarReservations reservations={reserve} />
     </div>
   );

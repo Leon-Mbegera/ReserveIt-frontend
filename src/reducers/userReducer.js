@@ -3,7 +3,7 @@ import { SAVE_CURRENT_USER } from '../actions/index';
 const userReducer = (state = '', action) => {
   switch (action.type) {
     case SAVE_CURRENT_USER:
-      return { ...action.payload };
+      return action.payload;
     default:
       return state;
   }
