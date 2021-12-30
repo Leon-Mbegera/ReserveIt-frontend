@@ -24,6 +24,24 @@ const GetMyReservations = async () => {
   return myreservations;
 };
 
+const UserSignUp = async (username, email, password, confirm) => {
+  const response = await fetch('http://localhost:3000/auth/signup', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      user: {
+        username,
+        email,
+        password,
+        confirm,
+      },
+    }),
+  });
+
+  const data = await response.json();
+  return data;
+};
+
 const UserSignIn = async (email, password) => {
   const response = await fetch('http://localhost:3000/auth/signin', {
     method: 'POST',
@@ -40,4 +58,6 @@ const UserSignIn = async (email, password) => {
   return data;
 };
 
-export { GetCarReservations, GetMyReservations, UserSignIn };
+export {
+  GetCarReservations, GetMyReservations, UserSignUp, UserSignIn,
+};
