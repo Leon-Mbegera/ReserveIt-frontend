@@ -14,19 +14,33 @@ ReactDOM.render(
   rootElement,
 );
 
-// const endpoint = 'http://localhost:3000/cars/1';
-// axios.get(endpoint).then((response) => {
-//   console.log(response);
-// });
-
-// const FetchCarReservations = async () => {
-//   const Endpoint = 'http://localhost:3000/reservations/7';
-//   const response = await fetch(Endpoint, {
+// const GetMyReservations = async () => {
+//   const response = await fetch('http://localhost:3000/reservations', {
 //     method: 'GET',
 //     headers: { 'Content-Type': 'application/json' },
 //   });
-//   const reservations = await response.json();
-//   console.log('success', reservations);
+//   const myreservations = await response.json();
+//   console.log('index.js', myreservations);
+//   return myreservations;
 // };
 
-// export default FetchCarReservations;
+const UserSignIn = async () => {
+  const response = await fetch('http://localhost:3000/auth/signin', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      auth: {
+        email: 'samrood@exmail.com',
+        password: '123456',
+      },
+    }),
+  });
+
+  const data = await response.json();
+  console.log(data);
+  return data;
+};
+
+UserSignIn();
+
+export default UserSignIn;
