@@ -4,6 +4,12 @@ const FETCH_CARS_REQUEST = 'FETCH_CARS_REQUEST';
 const FETCH_CARS_SUCCESS = 'FETCH_CARS_SUCCESS';
 const FETCH_CAR_INFO = 'FETCH_CAR_INFO';
 const FETCH_CARS_FAILURE = 'FETCH_CARS_FAILURE';
+const SAVE_CURRENT_USER = 'SAVE_CURRENT_USER';
+
+const saveCurrentUser = (user) => ({
+  type: SAVE_CURRENT_USER,
+  payload: user,
+});
 
 const fetchCarsRequest = () => ({
   type: FETCH_CARS_REQUEST,
@@ -45,6 +51,6 @@ const fetchEachCar = (id) => (dispatch) => {
 
 export {
   FETCH_CARS_REQUEST, FETCH_CARS_SUCCESS, FETCH_CAR_INFO,
-  FETCH_CARS_FAILURE, fetchCarsRequest, fetchCarInfo, fetchCarsSuccess,
-  fetchCarsFailure, fetchAllCars, fetchEachCar,
+  FETCH_CARS_FAILURE, SAVE_CURRENT_USER, fetchCarsRequest, fetchCarInfo, fetchCarsSuccess,
+  fetchCarsFailure, fetchAllCars, fetchEachCar, saveCurrentUser,
 };
