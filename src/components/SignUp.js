@@ -1,11 +1,14 @@
 import React, { useState } from 'react';
-import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
+import { UserSignUp } from '../containers/APIs';
+// import axios from 'axios';
 
 const SignUp = () => {
   const [username, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [passwordConfirm, setConfirm] = useState('');
+  const [confirm, setConfirm] = useState('');
+  const navigate = useNavigate();
 
   const handleUsername = (e) => (
     setName(e.target.value)
@@ -23,13 +26,19 @@ const SignUp = () => {
     setConfirm(e.target.value)
   );
 
-  const handleCredentials = () => {
-    axios.post('http://www.localhost:3000/auth/signup', {
-      username,
-      email,
-      password,
-      passwordConfirm,
-    });
+  const Authorization = (data) => {
+    if (data.token) {
+      localStorage.setItem('accessToken', data.token);
+      navigate('/');
+    }
+  };
+
+  const handleCredentials = (e) => {
+    e.preventDefault();
+    UserSignUp(username, email, password, confirm)
+      .then((data) => {
+        Authorization(data);
+      });
   };
 
   return (
