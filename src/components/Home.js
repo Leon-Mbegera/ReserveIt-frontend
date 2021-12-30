@@ -1,7 +1,8 @@
 import React from 'react';
+import '../App.css';
 
 const Home = () => (
-  <div>
+  <div className="App">
     <p>Motor Show</p>
   </div>
 );
