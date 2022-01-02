@@ -33,7 +33,7 @@ const ReservationForm = ({ car, user }) => {
     <section>
       <div>
         <form>
-          <input type="text" placeholder="username" value={user.username} />
+          <input type="text" placeholder="username" value={user} readOnly />
           <input type="text" placeholder="model" value={car.model} readOnly />
           <textarea name="agreement" onChange={(e) => handleAgreement(e)} />
           <input type="text" onChange={(e) => handleCity(e)} />
@@ -53,7 +53,7 @@ ReservationForm.propTypes = {
     mileage: PropTypes.string,
     price: PropTypes.number,
   }).isRequired,
-  user: PropTypes.objectOf.isRequired,
+  user: PropTypes.string.isRequired,
 };
 
 export default ReservationForm;
