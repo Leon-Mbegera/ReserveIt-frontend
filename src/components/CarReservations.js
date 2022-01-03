@@ -1,21 +1,24 @@
 import PropTypes from 'prop-types';
 
-const CarReservations = ({ reservations }) => (
+const CarReservations = ({ reservations, loading, error }) => (
   <div>
-    {reservations && reservations.length ? (
-      reservations.map((object) => (
+    {error && <p>{error}</p>}
+    {loading && <p>Loading...</p>}
+    {reservations && reservations.length
+      && reservations.map((object) => (
         <div key={object.id}>
           <p>{object.agreement}</p>
           <p>{object.city}</p>
           <p>{object.date}</p>
         </div>
-      ))
-    ) : <p>Just a sec...</p>}
+      ))}
   </div>
 );
 
 CarReservations.propTypes = {
   reservations: PropTypes.arrayOf(PropTypes.object).isRequired,
+  loading: PropTypes.bool.isRequired,
+  error: PropTypes.string.isRequired,
 };
 
 export default CarReservations;

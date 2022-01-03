@@ -10,6 +10,8 @@ const SingleCar = () => {
   const { car } = useSelector((state) => state);
   const { user } = useSelector((state) => state);
   const [reserve, setReserve] = useState('');
+  const [isPending, setIsPending] = useState(true);
+  const [error, setError] = useState(null);
   const dispatch = useDispatch();
   const { id } = useParams();
 
@@ -22,7 +24,14 @@ const SingleCar = () => {
   useEffect(() => {
     GetCarReservations(id)
       .then((response) => {
-        setReserve(response);
+        if (response.error) {
+          setIsPending(false);
+          setError(response.error);
+        } else if (response.data) {
+          setReserve(response.data);
+          setIsPending(false);
+          setError(null);
+        }
       });
   }, [id]);
 
@@ -35,7 +44,7 @@ const SingleCar = () => {
         <p>{car.price}</p>
       </div>
       <ReservationForm car={car} user={user} />
-      <CarReservations reservations={reserve} />
+      <CarReservations reservations={reserve} loading={isPending} error={error} />
     </div>
   );
 };

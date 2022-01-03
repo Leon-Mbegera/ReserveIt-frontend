@@ -1,15 +1,37 @@
-const GetCarReservations = async (id) => {
-  const accessToken = localStorage.getItem('accessToken');
-  const response = await fetch(`http://localhost:3000/reservations/${id}`, {
-    method: 'GET',
-    headers: {
-      'Content-Type': 'application/json',
-      Authorization: `Bearer ${accessToken}`,
-    },
-  });
-  const reservations = await response.json();
-  return reservations;
-};
+// const GetCarReservations = async (id) => {
+//   const accessToken = localStorage.getItem('accessToken');
+//   const response = await fetch(`http://localhost:3000/reservations/${id}`, {
+//     method: 'GET',
+//     headers: {
+//       'Content-Type': 'application/json',
+//       Authorization: `Bearer ${accessToken}`,
+//     },
+//   });
+//   const reservations = await response.json();
+//   console.log(reservations);
+//   return reservations;
+// };
+
+async function GetCarReservations(id) {
+  try {
+    const accessToken = localStorage.getItem('accessToken');
+    const response = await fetch(`http://localhost:3000/reservations/${id}`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${accessToken}`,
+      },
+    });
+    if (!response.ok) {
+      throw new Error('Could not fetch data!');
+    } else {
+      const reservations = await response.json();
+      return { error: null, data: reservations };
+    }
+  } catch (error) {
+    return { error: error.message, data: null };
+  }
+}
 
 const GetMyReservations = async () => {
   const accessToken = localStorage.getItem('accessToken');
