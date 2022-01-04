@@ -3,7 +3,6 @@ import { GetMyReservations } from '../containers/APIs';
 
 const MyReservations = () => {
   const [myReserves, setMyReserves] = useState('');
-
   useEffect(() => {
     GetMyReservations()
       .then((response) => {

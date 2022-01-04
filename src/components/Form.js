@@ -1,44 +1,40 @@
 import { useState } from 'react';
 import PropTypes from 'prop-types';
+// import { PostReservationDetails } from '../containers/APIs';
 
 const ReservationForm = ({ car, user }) => {
   const [agreement, setAgreement] = useState('');
   const [city, setCity] = useState('');
   const [date, setDate] = useState('');
 
-  const handleAgreement = (e) => setAgreement(e.target.value);
-
-  const handleCity = (e) => setCity(e.target.value);
-
-  const handleDate = (e) => setDate(e.target.value);
-
-  const postData = {
-    car_id: car.id,
-    agreement,
-    city,
-    date,
-  };
-
-  const PostReservationDetails = () => {
+  const handleReservationDetails = (e) => {
+    e.preventDefault();
+    const details = {
+      reservation: {
+        car_id: car.id, agreement, city, date,
+      },
+    };
+    const accessToken = localStorage.getItem('accessToken');
     fetch('http://localhost:3000/reservations', {
       method: 'POST',
       headers: {
-        'Content-type': 'application/json',
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${accessToken}`,
       },
-      body: JSON.stringify(postData),
+      body: JSON.stringify(details),
     });
   };
 
   return (
     <section>
       <div>
-        <form>
-          <input type="text" placeholder="username" value={user} readOnly />
-          <input type="text" placeholder="model" value={car.model} readOnly />
-          <textarea name="agreement" onChange={(e) => handleAgreement(e)} />
-          <input type="text" onChange={(e) => handleCity(e)} />
-          <input type="date" onChange={(e) => handleDate(e)} />
-          <button type="button" onClick={PostReservationDetails}>Reserve</button>
+        <form onSubmit={handleReservationDetails}>
+          <input type="text" placeholder="username" value={user} required readOnly />
+          <input type="text" placeholder="model" value={car.model} required readOnly />
+          <textarea name="agreement" required onChange={(e) => setAgreement(e.target.value)} />
+          <input type="text" required onChange={(e) => setCity(e.target.value)} />
+          <input type="date" required onChange={(e) => setDate(e.target.value)} />
+          <button type="submit">Make Reservation</button>
         </form>
       </div>
     </section>
