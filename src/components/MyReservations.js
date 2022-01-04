@@ -21,6 +21,7 @@ const MyReservations = () => {
         'Content-Type': 'application/json',
         Authorization: `Bearer ${accessToken}`,
       },
+      body: JSON.stringify({ id }),
     }).then(() => {
       navigate('/MyReservations');
     });
@@ -37,7 +38,7 @@ const MyReservations = () => {
             <p>{each.agreement}</p>
             <p>{each.city}</p>
             <p>{each.date}</p>
-            <button type="submit" onClick={() => handleDelete(each.car.id)}>delete</button>
+            <button type="submit" onClick={() => handleDelete(each.id)}>delete</button>
           </div>
         ))
       ) : <p>Just a sec...</p>}
