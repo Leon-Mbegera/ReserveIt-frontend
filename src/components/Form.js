@@ -6,6 +6,7 @@ const ReservationForm = ({ car, user }) => {
   const [agreement, setAgreement] = useState('');
   const [city, setCity] = useState('');
   const [date, setDate] = useState('');
+  const [isPending, setIsPending] = useState(false);
 
   const handleReservationDetails = (e) => {
     e.preventDefault();
@@ -14,6 +15,9 @@ const ReservationForm = ({ car, user }) => {
         car_id: car.id, agreement, city, date,
       },
     };
+
+    setIsPending(true);
+
     const accessToken = localStorage.getItem('accessToken');
     fetch('http://localhost:3000/reservations', {
       method: 'POST',
@@ -22,6 +26,8 @@ const ReservationForm = ({ car, user }) => {
         Authorization: `Bearer ${accessToken}`,
       },
       body: JSON.stringify(details),
+    }).then(() => {
+      setIsPending(false);
     });
   };
 
@@ -34,7 +40,8 @@ const ReservationForm = ({ car, user }) => {
           <textarea name="agreement" required onChange={(e) => setAgreement(e.target.value)} />
           <input type="text" required onChange={(e) => setCity(e.target.value)} />
           <input type="date" required onChange={(e) => setDate(e.target.value)} />
-          <button type="submit">Make Reservation</button>
+          { !isPending && <button type="submit">Make Reservation</button> }
+          { isPending && <button type="button" disabled>Making Reservation ...</button> }
         </form>
       </div>
     </section>
