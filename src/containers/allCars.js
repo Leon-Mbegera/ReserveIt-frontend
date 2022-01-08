@@ -19,8 +19,6 @@ const AllCars = () => {
         <div key={`cars-${car.id}`}>
           <img src={car.image} alt="car" />
           <p>{car.model}</p>
-          <p>{car.mileage}</p>
-          <p>{car.price}</p>
           <Link to={`/cars/${car.id}`}>view</Link>
         </div>
       ))}

@@ -40,7 +40,11 @@ const SingleCar = () => {
       <div key={`car-${car.id}`}>
         <img src={car.image} alt="car" />
         <p>{car.model}</p>
-        <p>{car.mileage}</p>
+        <p>{car.engine_type}</p>
+        <p>{car.transmission}</p>
+        <p>{car.fuel_type}</p>
+        <p>{car.interior_color}</p>
+        <p>{car.exterior_color}</p>
         <p>{car.price}</p>
       </div>
       <ReservationForm car={car} user={user} />
