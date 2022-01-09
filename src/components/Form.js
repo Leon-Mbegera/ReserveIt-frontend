@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import PropTypes from 'prop-types';
+// import { GetCarReservations } from '../containers/APIs';
 // import { PostReservationDetails } from '../containers/APIs';
 
 const ReservationForm = ({ car, user }) => {
@@ -15,9 +16,7 @@ const ReservationForm = ({ car, user }) => {
         car_id: car.id, agreement, city, date,
       },
     };
-
     setIsPending(true);
-
     const accessToken = localStorage.getItem('accessToken');
     fetch('http://localhost:3000/reservations', {
       method: 'POST',
