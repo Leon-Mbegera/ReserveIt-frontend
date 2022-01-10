@@ -21,7 +21,7 @@ const SingleCar = () => {
     );
   }, []);
 
-  useEffect(() => {
+  const UpdateReservations = () => {
     GetCarReservations(id)
       .then((response) => {
         if (response.error) {
@@ -33,6 +33,10 @@ const SingleCar = () => {
           setError(null);
         }
       });
+  };
+
+  useEffect(() => {
+    UpdateReservations();
   }, [id]);
 
   return (
@@ -47,8 +51,12 @@ const SingleCar = () => {
         <p>{car.exterior_color}</p>
         <p>{car.price}</p>
       </div>
-      <ReservationForm car={car} user={user} />
-      <CarReservations reservations={reserve} loading={isPending} error={error} />
+      <ReservationForm car={car} user={user} UpdateReservations={UpdateReservations} />
+      <CarReservations
+        reservations={reserve}
+        loading={isPending}
+        error={error}
+      />
     </div>
   );
 };

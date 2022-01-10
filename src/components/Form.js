@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 // import { GetCarReservations } from '../containers/APIs';
 // import { PostReservationDetails } from '../containers/APIs';
 
-const ReservationForm = ({ car, user }) => {
+const ReservationForm = ({ car, user, UpdateReservations }) => {
   const [agreement, setAgreement] = useState('');
   const [city, setCity] = useState('');
   const [date, setDate] = useState('');
@@ -27,6 +27,7 @@ const ReservationForm = ({ car, user }) => {
       body: JSON.stringify(details),
     }).then(() => {
       setIsPending(false);
+      UpdateReservations();
     });
   };
 
@@ -56,6 +57,7 @@ ReservationForm.propTypes = {
     price: PropTypes.number,
   }).isRequired,
   user: PropTypes.string.isRequired,
+  UpdateReservations: PropTypes.func.isRequired,
 };
 
 export default ReservationForm;
