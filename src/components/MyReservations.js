@@ -1,16 +1,18 @@
 import { useEffect, useState } from 'react';
-// import { useNavigate } from 'react-router-dom';
 import { GetMyReservations } from '../containers/APIs';
 
 const MyReservations = () => {
   const [myReserves, setMyReserves] = useState('');
-  // const navigate = useNavigate();
 
-  useEffect(() => {
+  const UpdateMyReservation = () => {
     GetMyReservations()
       .then((response) => {
         setMyReserves(response);
       });
+  };
+
+  useEffect(() => {
+    UpdateMyReservation();
   }, []);
 
   const handleDelete = (id) => {
@@ -23,10 +25,7 @@ const MyReservations = () => {
       },
       body: JSON.stringify({ id }),
     }).then(() => {
-      GetMyReservations()
-        .then((response) => {
-          setMyReserves(response);
-        });
+      UpdateMyReservation();
     });
   };
 

@@ -2,22 +2,21 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import styles from '../css/Style.css';
+import '../index.css';
 
 const Sidebar = ({ navigationLinks }) => {
   const [currentRoute, setCurrentRoute] = useState('Home');
 
   return (
-    <nav>
-      <ul>
+    <nav className="fixed left-10 top-0 bottom-0 z-50 w-14 bg-grey flex flex-col h-screen justify-between items-center py-6 rounded-tr-4xl rounded-br-4xl">
+      <ul className="list-none">
         {navigationLinks.map((element) => (
           <li key={element.type}>
             <button
               type="submit"
               className={classNames([
-                styles.navItem,
-                currentRoute === element && styles.navItemActive,
-                'group',
+                '',
+                currentRoute === element,
               ])}
               onClick={() => setCurrentRoute(element)}
             >
