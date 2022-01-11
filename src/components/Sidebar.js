@@ -8,19 +8,26 @@ const Sidebar = ({ navigationLinks }) => {
   const [currentRoute, setCurrentRoute] = useState('Home');
 
   return (
-    <nav className="fixed left-0 top-0 bottom-0 z-50 w-40 bg-grey flex flex-col h-screen justify-between items-center py-6 border-2 border-black">
+    <nav className="fixed left-2 top-0 bottom-0 z-50 w-40 pt-20 flex flex-col h-screen items-center border-r-2 border-light-grey">
       <ul className="list-none">
         {navigationLinks.map((element) => (
-          <li key={element.type}>
+          <li
+            key={element.type}
+            className={classNames([
+              'text-dark-grey p-2',
+              currentRoute === element && 'text-white bg-green px-2',
+            ])}
+          >
             <button
               type="submit"
-              className={classNames([
-                '',
-                currentRoute === element,
-              ])}
               onClick={() => setCurrentRoute(element)}
             >
-              <Link to={`/${element}`}>{element.toUpperCase()}</Link>
+              <Link
+                to={`/${element}`}
+                className="font-bold"
+              >
+                {element.toUpperCase()}
+              </Link>
             </button>
           </li>
         ))}
