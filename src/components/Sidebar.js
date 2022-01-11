@@ -8,7 +8,7 @@ const Sidebar = ({ navigationLinks }) => {
   const [currentRoute, setCurrentRoute] = useState('Home');
 
   return (
-    <nav className="fixed left-10 top-0 bottom-0 z-50 w-14 bg-grey flex flex-col h-screen justify-between items-center py-6 rounded-tr-4xl rounded-br-4xl">
+    <nav className="fixed left-0 top-0 bottom-0 z-50 w-40 bg-grey flex flex-col h-screen justify-between items-center py-6 border-2 border-black">
       <ul className="list-none">
         {navigationLinks.map((element) => (
           <li key={element.type}>
@@ -20,7 +20,7 @@ const Sidebar = ({ navigationLinks }) => {
               ])}
               onClick={() => setCurrentRoute(element)}
             >
-              <Link to={`/${element}`}>{element}</Link>
+              <Link to={`/${element}`}>{element.toUpperCase()}</Link>
             </button>
           </li>
         ))}
