@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import Carousel from 'react-elastic-carousel';
+import { FaFacebook, FaTwitter, FaInstagram } from 'react-icons/fa';
 import { fetchAllCars } from '../actions/index';
 import '../App.css';
 
@@ -28,13 +29,26 @@ const AllCars = () => {
         <div className="mt-16 mb-10">
           <h1 className="text-center text-2xl font-extrabold tracking-wider">LATEST MODELS</h1>
           <p className="text-center text-xs font-bold text-stone-400">Please select a Vehicle Model</p>
+          <p className="text-center text-base font-bold text-stone-300 mb-6 mt-4">.................</p>
         </div>
         <Carousel breakPoints={breakPoints}>
           {cars.data.map((car) => (
             <div key={`cars-${car.id}`} className="w-64">
-              <img src={car.image} alt="car" />
-              <p>{car.model}</p>
-              <Link to={`/cars/${car.id}`}>view</Link>
+              <div className="image-div">
+                <img src={car.image} alt="car" />
+              </div>
+              <div>
+                <p className="text-center uppercase font-bold">{car.model}</p>
+                <p className="text-center backdrop-contrast-50 mt-2">
+                  <Link to={`/cars/${car.id}`}>View Details</Link>
+                </p>
+                <p className="text-center text-base font-bold text-stone-300 mb-6 mt-4">..........</p>
+              </div>
+              <div className="flex flex-row justify-center space-x-4 text-xl text-stone-500">
+                <button type="button" aria-label="facebook"><FaFacebook /></button>
+                <button type="button" aria-label="twitter"><FaTwitter /></button>
+                <button type="button" aria-label="insta"><FaInstagram /></button>
+              </div>
             </div>
           ))}
         </Carousel>
