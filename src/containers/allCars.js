@@ -26,8 +26,8 @@ const AllCars = () => {
     <>
       <div className="wrapper">
         <div className="mt-16 mb-10">
-          <h1 className="text-center">LATEST MODELS</h1>
-          <p className="text-center">please select a car model</p>
+          <h1 className="text-center text-2xl font-extrabold tracking-wider">LATEST MODELS</h1>
+          <p className="text-center text-xs font-bold text-stone-400">Please select a Vehicle Model</p>
         </div>
         <Carousel breakPoints={breakPoints}>
           {cars.data.map((car) => (
