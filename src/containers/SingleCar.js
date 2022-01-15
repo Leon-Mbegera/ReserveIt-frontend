@@ -40,24 +40,32 @@ const SingleCar = () => {
   }, [id]);
 
   return (
-    <div>
-      <div key={`car-${car.id}`}>
-        <img src={car.image} alt="car" />
-        <p>{car.model}</p>
-        <p>{car.engine_type}</p>
-        <p>{car.transmission}</p>
-        <p>{car.fuel_type}</p>
-        <p>{car.interior_color}</p>
-        <p>{car.exterior_color}</p>
-        <p>{car.price}</p>
+    <>
+      <div className="grid grid-cols-3">
+        <div key={`car-${car.id}`}>
+          <img src={car.image} alt="car" />
+        </div>
+        <div>
+          <p>{car.model}</p>
+          <p>{car.engine_type}</p>
+          <p>{car.transmission}</p>
+          <p>{car.fuel_type}</p>
+          <p>{car.interior_color}</p>
+          <p>{car.exterior_color}</p>
+          <p>{car.price}</p>
+        </div>
+        <div className="grid row-span-3">
+          <CarReservations
+            reservations={reserve}
+            loading={isPending}
+            error={error}
+          />
+        </div>
+        <div className="grid col-span-2">
+          <ReservationForm car={car} user={user} UpdateReservations={UpdateReservations} />
+        </div>
       </div>
-      <ReservationForm car={car} user={user} UpdateReservations={UpdateReservations} />
-      <CarReservations
-        reservations={reserve}
-        loading={isPending}
-        error={error}
-      />
-    </div>
+    </>
   );
 };
 
