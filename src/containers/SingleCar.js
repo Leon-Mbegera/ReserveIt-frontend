@@ -41,54 +41,58 @@ const SingleCar = () => {
 
   return (
     <>
-      <div className="grid grid-cols-5 justify-items-center gap-0 mx-6 mt-10">
-        <div key={`car-${car.id}`} className="col-span-2">
+      <div className="grid grid-cols-7 justify-items-center gap-0 mx-6 mt-10">
+        <div key={`car-${car.id}`} className="col-span-3">
           <img src={car.image} alt="car" />
         </div>
-        <div>
-          <p>
-            Model:
-            {' '}
-            {car.model}
-          </p>
-          <p>
-            Engine:
-            {' '}
-            {car.engine_type}
-          </p>
-          <p>
-            Transmission:
-            {' '}
-            {car.transmission}
-          </p>
-          <p>
-            Fuel:
-            {' '}
-            {car.fuel_type}
-          </p>
-          <p>
-            Interior color:
-            {' '}
-            {car.interior_color}
-          </p>
-          <p>
-            Exterior color:
-            {' '}
-            {car.exterior_color}
-          </p>
-          <p>
-            Price: ksh.
-            {car.price}
-          </p>
+        <div className="col-span-2">
+          <h1 className="text-xl font-bold tracking-wide my-2">Specifications</h1>
+          <div className="specifications">
+            <p>
+              Model:
+              {' '}
+              {car.model}
+            </p>
+            <p>
+              Engine:
+              {' '}
+              {car.engine_type}
+            </p>
+            <p>
+              Transmission:
+              {' '}
+              {car.transmission}
+            </p>
+            <p>
+              Fuel:
+              {' '}
+              {car.fuel_type}
+            </p>
+            <p>
+              Interior color:
+              {' '}
+              {car.interior_color}
+            </p>
+            <p>
+              Exterior color:
+              {' '}
+              {car.exterior_color}
+            </p>
+            <p>
+              Price: ksh.
+              {car.price}
+            </p>
+          </div>
         </div>
-        <div className="grid col-span-2 row-span-3">
+        <div className="grid col-span-2 row-span-3 border-x-2 px-6">
+          <h1 className="text-xl font-bold tracking-wide my-2">Reservations</h1>
           <CarReservations
             reservations={reserve}
             loading={isPending}
             error={error}
           />
         </div>
-        <div className="grid col-span-3">
+        <div className="grid col-span-5">
           <ReservationForm car={car} user={user} UpdateReservations={UpdateReservations} />
         </div>
       </div>
