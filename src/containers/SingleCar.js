@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { fetchEachCar } from '../actions/index';
-import ReservationForm from '../components/Form';
+import ReservationForm from '../components/ReservationForm';
 import CarReservations from '../components/CarReservations';
 import { GetCarReservations } from './APIs';
 
