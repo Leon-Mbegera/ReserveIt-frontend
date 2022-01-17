@@ -34,7 +34,7 @@ const ReservationForm = ({ car, user, UpdateReservations }) => {
   return (
     <section>
       <div>
-        <form onSubmit={handleReservationDetails} className="w-full">
+        <form onSubmit={handleReservationDetails} className="w-full -mt-6">
           <div className="flex flex-wrap space-x-8">
             <div className="">
               <label htmlFor="username" className="block text-gray-500 font-bold md:text-left mb-1 md:mb-1 pr-4 text-left">Username:</label>
@@ -63,7 +63,7 @@ const ReservationForm = ({ car, user, UpdateReservations }) => {
             <div className="flex flex-row justify-between">
               <div>
                 <label htmlFor="model" className="block text-gray-500 font-bold md:text-left mb-1 md:mb-1 pr-4 text-left">Select date:</label>
-                <input type="date" required onChange={(e) => setDate(e.target.value)} className="w-48 appearance-none w-full bg-gray-200 text-gray-700 rounded p-2 mb-3 leading-tight border focus:border-red-500 focus:bg-white focus:outline-none" />
+                <input type="date" required onChange={(e) => setDate(e.target.value)} className="appearance-none w-full bg-gray-200 text-gray-700 rounded p-2 mb-3 leading-tight border focus:border-red-500 focus:bg-white focus:outline-none" />
               </div>
               { !isPending && <button type="submit">Make Reservation</button> }
               { isPending && <button type="button" disabled>Making Reservation ...</button> }

@@ -41,7 +41,7 @@ const SingleCar = () => {
 
   return (
     <>
-      <div className="grid grid-cols-7 justify-items-center gap-0 mx-6 mt-10">
+      <div className="grid grid-cols-7 justify-items-center gap-0 mx-6 mt-8">
         <div key={`car-${car.id}`} className="col-span-3">
           <img src={car.image} alt="car" />
         </div>
@@ -49,37 +49,52 @@ const SingleCar = () => {
           <h1 className="text-xl font-bold tracking-wide my-2">Specifications</h1>
           <div className="specifications">
             <p>
-              Model:
-              {' '}
+              <span className="text-gray-500 font-bold md:text-left pr-2">
+                Model:
+                {' '}
+              </span>
               {car.model}
             </p>
             <p>
-              Engine:
-              {' '}
+              <span className="text-gray-500 font-bold md:text-left pr-2">
+                Engine:
+                {' '}
+              </span>
               {car.engine_type}
             </p>
             <p>
-              Transmission:
-              {' '}
+              <span className="text-gray-500 font-bold md:text-left pr-2">
+                Transmission:
+                {' '}
+              </span>
               {car.transmission}
             </p>
             <p>
-              Fuel:
-              {' '}
+              <span className="text-gray-500 font-bold md:text-left pr-2">
+                Fuel:
+                {' '}
+              </span>
               {car.fuel_type}
             </p>
             <p>
-              Interior color:
-              {' '}
+              <span className="text-gray-500 font-bold md:text-left pr-2">
+                Interior color:
+                {' '}
+              </span>
               {car.interior_color}
             </p>
             <p>
-              Exterior color:
-              {' '}
+              <span className="text-gray-500 font-bold md:text-left pr-2">
+                Exterior color:
+                {' '}
+              </span>
               {car.exterior_color}
             </p>
             <p>
-              Price: ksh.
+              <span className="text-gray-500 font-bold md:text-left pr-2">
+                Price ksh:
+                {' '}
+              </span>
               {car.price}
             </p>
           </div>
