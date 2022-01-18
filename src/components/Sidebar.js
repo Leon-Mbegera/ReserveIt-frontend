@@ -21,7 +21,7 @@ const Sidebar = ({ navigationLinks }) => {
         />
       </div>
       )}
-      <nav className={sideBar ? 'left-2 top-0 bottom-0 w-40 flex flex-col h-screen items-center border-r-2 border-light-grey nav-menu active' : 'nav-menu deactive'}>
+      <nav className={sideBar ? 'left-2 top-0 bottom-0 flex flex-col h-screen items-center border-r-2 border-light-grey nav-menu active' : 'nav-menu deactive'}>
         <div className="navbar-toggler">
           <AiOutlineClose
             className="menu-close"
@@ -34,7 +34,7 @@ const Sidebar = ({ navigationLinks }) => {
               key={element.type}
               className={classNames([
                 'text-dark-grey p-2',
-                currentRoute === element && 'text-white bg-green px-2',
+                currentRoute === element && 'text-white bg-green p-2',
               ])}
             >
               <button
