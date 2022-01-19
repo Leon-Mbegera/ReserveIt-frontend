@@ -31,26 +31,32 @@ const MyReservations = () => {
 
   return (
     <>
-      <div className="flex flex-row flex-wrap justify-around space-x-8 space-y-3 my-4">
-        {myReserves && myReserves.length ? (
-          myReserves.map((each) => (
-            <div key={each.id} className="display w-5/12 flex border border-gray-400 rounded">
-              <div className="border-r border-gray-400 bg-cover w-3/6">
-                <img src={each.car.image} alt="model-pict" />
-              </div>
-              <div className="w-3/6 p-2">
-                <div className="h-2/6 mb-6">
-                  <p className="text-gray-600 font-bold text-base mb-2">{each.agreement}</p>
+      <div>
+        <div className="my-10">
+          <h1 className="text-center text-2xl font-extrabold tracking-wider">My Reservations</h1>
+          <p className="text-center text-xs font-bold text-stone-400">Confirmed Vehicle Reservations</p>
+        </div>
+        <div className="flex flex-row flex-wrap justify-around space-x-8 space-y-3 my-4">
+          {myReserves && myReserves.length ? (
+            myReserves.map((each) => (
+              <div key={each.id} className="display w-5/12 flex border border-gray-400 rounded">
+                <div className="border-r border-gray-400 bg-cover w-3/6">
+                  <img src={each.car.image} alt="model-pict" />
                 </div>
-                <div className="h-2/6 mb-2">
-                  <p className="uppercase text-base font-medium tracking-wide my-2">{each.city}</p>
-                  <p>{each.date}</p>
+                <div className="w-3/6 p-2">
+                  <div className="h-2/6 mb-6">
+                    <p className="text-gray-600 font-bold text-base mb-2">{each.agreement}</p>
+                  </div>
+                  <div className="h-2/6 mb-2">
+                    <p className="uppercase text-base font-medium tracking-wide my-2">{each.city}</p>
+                    <p>{each.date}</p>
+                  </div>
+                  <button type="submit" onClick={() => handleDelete(each.id)} className="bg-green hover:bg-blue-700 text-white font-bold p-1 rounded w-full">delete</button>
                 </div>
-                <button type="submit" onClick={() => handleDelete(each.id)} className="bg-green hover:bg-blue-700 text-white font-bold p-1 rounded w-full">delete</button>
               </div>
-            </div>
-          ))
-        ) : <p>Just a sec...</p>}
+            ))
+          ) : <p>Just a sec...</p>}
+        </div>
       </div>
     </>
   );
