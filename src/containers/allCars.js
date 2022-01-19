@@ -39,7 +39,7 @@ const AllCars = () => {
               </div>
               <div>
                 <p className="text-center uppercase font-bold">{car.model}</p>
-                <p className="text-center backdrop-contrast-50 mt-2">
+                <p className="text-center backdrop-contrast-50 mt-2 quicksand font-bold">
                   <Link to={`/cars/${car.id}`}>View Details</Link>
                 </p>
                 <p className="text-center text-base font-bold text-stone-300 mb-6 mt-4">..........</p>

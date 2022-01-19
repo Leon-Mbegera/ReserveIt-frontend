@@ -37,7 +37,7 @@ const Sidebar = ({ navigationLinks }) => {
               key={element.type}
               className={classNames([
                 'text-dark-grey p-2',
-                currentRoute === element && 'text-white bg-green p-2',
+                currentRoute === element && 'text-slate-50 bg-green p-2',
               ])}
             >
               <button

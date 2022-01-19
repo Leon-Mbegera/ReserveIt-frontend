@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Dongle:wght@300&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Dongle:wght@300&family=Pacifico&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
 
 .company {
  font-family: 'Pacifico', cursive;
@@ -58,4 +59,12 @@
 
 .display:hover {
   box-shadow: 5px 7px 10px rgba(0,0,0,0.1);
+}
+
+.dongle {
+  font-family: 'Dongle';
+}
+
+.quicksand {
+  font-family: 'Quicksand';
 }

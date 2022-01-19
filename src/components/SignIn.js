@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { UserSignIn } from '../containers/APIs';
 import { saveCurrentUser } from '../actions/index';
 
@@ -70,6 +70,11 @@ const SignIn = () => {
               className="appearance-none block w-full bg-gray-200 text-gray-700 rounded p-2 mb-2 leading-tight focus:outline-none focus:bg-white focus:border border-red-500"
             />
           </div>
+          <p className="text-center mb-5 text-yellow-500">
+            <Link to="/signup">
+              Don&apos;t have an account?
+            </Link>
+          </p>
           <button
             type="submit"
             className="bg-green hover:bg-blue-700 text-white font-bold rounded p-2 w-full self-center"

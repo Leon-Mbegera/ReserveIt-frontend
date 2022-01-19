@@ -32,7 +32,7 @@ const ReservationForm = ({ car, user, UpdateReservations }) => {
   return (
     <section>
       <div>
-        <form onSubmit={handleReservationDetails} className="w-full -mt-6">
+        <form onSubmit={handleReservationDetails} className="w-full -mt-3">
           <div className="flex flex-wrap space-x-8">
             <div className="">
               <label htmlFor="username" className="block text-gray-500 font-bold md:text-left mb-1 md:mb-1 pr-4 text-left">Username:</label>

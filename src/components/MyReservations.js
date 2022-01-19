@@ -45,10 +45,10 @@ const MyReservations = () => {
                 </div>
                 <div className="w-3/6 p-2">
                   <div className="h-2/6 mb-6">
-                    <p className="text-gray-600 font-bold text-base mb-2">{each.agreement}</p>
+                    <p className="text-gray-600 font-semibold text-base mb-2 quicksand">{each.agreement}</p>
                   </div>
                   <div className="h-2/6 mb-2">
-                    <p className="uppercase text-base font-medium tracking-wide my-2">{each.city}</p>
+                    <p className="uppercase text-base font-bold tracking-wide my-2 quicksand">{each.city}</p>
                     <p>{each.date}</p>
                   </div>
                   <button type="submit" onClick={() => handleDelete(each.id)} className="bg-green hover:bg-blue-700 text-white font-bold p-1 rounded w-full">delete</button>
