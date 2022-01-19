@@ -12,15 +12,19 @@ import navigationLinks from '../data/navigation';
 const Router = () => (
   <BrowserRouter>
     <div className="flex flex-row">
-      <Sidebar navigationLinks={navigationLinks} />
-      <Routes>
-        <Route exact path="/" element={<Home />} />
-        <Route exact path="/signup" element={<SignUp />} />
-        <Route exact path="/signin" element={<SignIn />} />
-        <Route exact path="/models" element={<AllCars />} />
-        <Route exact path="/cars/:id" element={<SingleCar />} />
-        <Route exact path="/MyReservations" element={<MyReservations />} />
-      </Routes>
+      <div>
+        <Sidebar navigationLinks={navigationLinks} />
+      </div>
+      <div className="w-full">
+        <Routes>
+          <Route exact path="/" element={<Home />} />
+          <Route exact path="/signup" element={<SignUp />} />
+          <Route exact path="/signin" element={<SignIn />} />
+          <Route exact path="/models" element={<AllCars />} />
+          <Route exact path="/cars/:id" element={<SingleCar />} />
+          <Route exact path="/MyReservations" element={<MyReservations />} />
+        </Routes>
+      </div>
     </div>
   </BrowserRouter>
 );

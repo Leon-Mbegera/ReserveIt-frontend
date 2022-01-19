@@ -35,13 +35,50 @@ const SignIn = () => {
   };
 
   return (
-    <form onSubmit={(e) => handleCredentials(e)}>
-      <label htmlFor="user-email">Email</label>
-      <input type="email" id="user-email" onChange={(e) => handleEmail(e)} />
-      <label htmlFor="user-password">Password</label>
-      <input type="password" id="user-password" onChange={(e) => handlePassword(e)} />
-      <button type="submit">Sign in</button>
-    </form>
+    <div className="w-72">
+      <form
+        onSubmit={(e) => handleCredentials(e)}
+      >
+        <div className="flex flex-col">
+          <div>
+            <label
+              htmlFor="user-email"
+              className="block text-gray-500 font-bold md:text-left mb-1 md:mb-1 text-left"
+            >
+              Email
+            </label>
+            <input
+              type="email"
+              id="user-email"
+              onChange={(e) => handleEmail(e)}
+              placeholder="Enter your email address"
+              className="appearance-none block w-full bg-gray-200 text-gray-700 rounded p-2 mb-2 leading-tight focus:outline-none focus:bg-white focus:border border-red-500"
+            />
+          </div>
+          <div>
+            <label
+              htmlFor="user-password"
+              className="block text-gray-500 font-bold md:text-left mb-1 md:mb-1 text-left"
+            >
+              Password
+            </label>
+            <input
+              type="password"
+              id="user-password"
+              onChange={(e) => handlePassword(e)}
+              placeholder="Enter your password"
+              className="appearance-none block w-full bg-gray-200 text-gray-700 rounded p-2 mb-2 leading-tight focus:outline-none focus:bg-white focus:border border-red-500"
+            />
+          </div>
+          <button
+            type="submit"
+            className="bg-green hover:bg-blue-700 text-white font-bold rounded p-2 w-full self-center"
+          >
+            Sign in
+          </button>
+        </div>
+      </form>
+    </div>
   );
 };
 
