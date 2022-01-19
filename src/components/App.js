@@ -8,6 +8,7 @@ import SignUp from './SignUp';
 import MyReservations from './MyReservations';
 import Home from './Home';
 import navigationLinks from '../data/navigation';
+import Layout from './Layout';
 
 const Router = () => (
   <BrowserRouter>
@@ -17,12 +18,18 @@ const Router = () => (
       </div>
       <div className="w-full">
         <Routes>
-          <Route exact path="/" element={<Home />} />
-          <Route exact path="/signup" element={<SignUp />} />
-          <Route exact path="/signin" element={<SignIn />} />
-          <Route exact path="/models" element={<AllCars />} />
-          <Route exact path="/cars/:id" element={<SingleCar />} />
-          <Route exact path="/MyReservations" element={<MyReservations />} />
+          <Route path="/" element={<Layout />}>
+
+            {/* public routes */}
+            <Route exact path="/" element={<Home />} />
+            <Route exact path="/signup" element={<SignUp />} />
+            <Route exact path="/signin" element={<SignIn />} />
+            <Route exact path="/models" element={<AllCars />} />
+
+            {/* protected routes */}
+            <Route exact path="/cars/:id" element={<SingleCar />} />
+            <Route exact path="/MyReservations" element={<MyReservations />} />
+          </Route>
         </Routes>
       </div>
     </div>
