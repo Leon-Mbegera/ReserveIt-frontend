@@ -28,7 +28,10 @@ const Sidebar = ({ navigationLinks }) => {
             onClick={() => setSidebar(!sideBar)}
           />
         </div>
-        <ul className="list-none pt-20">
+        <div className="mt-3 company -rotate-12">
+          <h1 className="text-3xl font-extrabold underline tracking-wide">Vrooomm</h1>
+        </div>
+        <ul className="list-none mt-14">
           {navigationLinks.map((element) => (
             <li
               key={element.type}

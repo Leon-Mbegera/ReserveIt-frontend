@@ -1,4 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Dongle:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dongle:wght@300&family=Pacifico&display=swap');
+
+.company {
+ font-family: 'Pacifico', cursive;
+}
+
 .nav-menu {
   transition: 1050ms;
   min-width: 12rem;
