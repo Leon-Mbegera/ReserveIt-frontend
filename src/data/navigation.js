@@ -1,1 +1,1 @@
-export default ['models', 'MyReservations', 'signin', 'signup'];
+export default ['models', 'MyReservations', 'signin', 'signup', 'signout'];

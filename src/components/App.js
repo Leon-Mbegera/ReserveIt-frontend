@@ -10,6 +10,7 @@ import Home from './Home';
 import navigationLinks from '../data/navigation';
 import Layout from './Layout';
 import RequireAuth from './RequireAuth';
+import SignOut from './SignOut';
 
 const App = () => (
   <BrowserRouter>
@@ -26,6 +27,7 @@ const App = () => (
             <Route exact path="/signup" element={<SignUp />} />
             <Route exact path="/signin" element={<SignIn />} />
             <Route exact path="/models" element={<AllCars />} />
+            <Route exact path="/signout" element={<SignOut />} />
 
             {/* protected routes */}
             <Route element={<RequireAuth />}>
