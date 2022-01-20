@@ -3,12 +3,14 @@ import { useDispatch } from 'react-redux';
 import { useNavigate, Link } from 'react-router-dom';
 import { UserSignIn } from '../containers/APIs';
 import { saveCurrentUser } from '../actions/index';
+import useAuth from '../hooks/useAuth';
 
 const SignIn = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const setAuthorized = useAuth()[1];
 
   const handleEmail = (e) => (
     setEmail(e.target.value)
@@ -21,6 +23,7 @@ const SignIn = () => {
   const Authorization = (data) => {
     if (data) {
       localStorage.setItem('accessToken', data.token);
+      setAuthorized(data.token);
       dispatch(saveCurrentUser(data.username));
       navigate('/models');
     }

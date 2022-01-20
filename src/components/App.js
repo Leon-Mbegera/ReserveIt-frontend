@@ -9,8 +9,9 @@ import MyReservations from './MyReservations';
 import Home from './Home';
 import navigationLinks from '../data/navigation';
 import Layout from './Layout';
+import RequireAuth from './RequireAuth';
 
-const Router = () => (
+const App = () => (
   <BrowserRouter>
     <div className="flex flex-row">
       <div>
@@ -27,8 +28,10 @@ const Router = () => (
             <Route exact path="/models" element={<AllCars />} />
 
             {/* protected routes */}
-            <Route exact path="/cars/:id" element={<SingleCar />} />
-            <Route exact path="/MyReservations" element={<MyReservations />} />
+            <Route element={<RequireAuth />}>
+              <Route exact path="/cars/:id" element={<SingleCar />} />
+              <Route exact path="/MyReservations" element={<MyReservations />} />
+            </Route>
           </Route>
         </Routes>
       </div>
@@ -36,4 +39,4 @@ const Router = () => (
   </BrowserRouter>
 );
 
-export default Router;
+export default App;

@@ -1,8 +1,6 @@
 import { useContext } from 'react';
+import { AuthContext } from '../components/Context';
 
-const useAuth = () => {
-  const accessToken = localStorage.getItem('accessToken');
-  return useContext(accessToken);
-};
+const useAuth = () => useContext(AuthContext);
 
 export default useAuth;
