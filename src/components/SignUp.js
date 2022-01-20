@@ -3,6 +3,7 @@ import { useNavigate, Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { UserSignUp } from '../containers/APIs';
 import { saveCurrentUser } from '../actions/index';
+import useAuth from '../hooks/useAuth';
 
 const SignUp = () => {
   const [username, setName] = useState('');
@@ -11,6 +12,7 @@ const SignUp = () => {
   const [confirm, setConfirm] = useState('');
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const setAuthorized = useAuth()[1];
 
   const handleUsername = (e) => (
     setName(e.target.value)
@@ -31,7 +33,8 @@ const SignUp = () => {
   const Authorization = (data) => {
     if (data.token) {
       localStorage.setItem('accessToken', data.token);
-      dispatch(saveCurrentUser(data.username));
+      setAuthorized(data.token);
+      dispatch(saveCurrentUser(data.user.username));
       navigate('/models');
     }
   };
