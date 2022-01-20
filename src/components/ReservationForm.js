@@ -6,6 +6,7 @@ const ReservationForm = ({ car, user, UpdateReservations }) => {
   const [city, setCity] = useState('');
   const [date, setDate] = useState('');
   const [isPending, setIsPending] = useState(false);
+  const { username } = user;
 
   const handleReservationDetails = (e) => {
     e.preventDefault();
@@ -36,7 +37,7 @@ const ReservationForm = ({ car, user, UpdateReservations }) => {
           <div className="flex flex-wrap space-x-8">
             <div className="">
               <label htmlFor="username" className="block text-gray-500 font-bold md:text-left mb-1 md:mb-1 pr-4 text-left">Username:</label>
-              <input type="text" id="username" placeholder="username" value={user} required readOnly className="appearance-none block w-full bg-gray-200 text-gray-700 rounded p-2 mb-2 leading-tight focus:outline-none focus:bg-white" />
+              <input type="text" id="username" placeholder="username" value={username} required readOnly className="appearance-none block w-full bg-gray-200 text-gray-700 rounded p-2 mb-2 leading-tight focus:outline-none focus:bg-white" />
             </div>
             <div>
               <label htmlFor="model" className="block text-gray-500 font-bold md:text-left mb-1 md:mb-1 pr-4 text-left">Model:</label>

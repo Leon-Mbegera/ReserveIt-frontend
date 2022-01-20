@@ -45,20 +45,8 @@ const SignUp = () => {
   };
 
   return (
-  // <form autoComplete="off" onSubmit={handleCredentials}>
-  //   <label htmlFor="name">Username</label>
-  //   <input type="text" id="name" onChange={(e) => handleUsername(e)} />
-  //   <label htmlFor="email">Email</label>
-  //   <input type="email" id="email" onChange={(e) => handleEmail(e)} />
-  //   <label htmlFor="password">Password</label>
-  //   <input type="password" id="password" onChange={(e) => handlePassword(e)} />
-  //   <label htmlFor="password-confirm">Confirm password</label>
-  //   <input type="password" id="user-password" onChange={(e) => handleConfirm(e)} />
-  //   <button type="submit">Sign up</button>
-  // </form>
-
     <div className="w-72">
-      <form onSubmit={(e) => handleCredentials(e)}>
+      <form onSubmit={(e) => handleCredentials(e)} autoComplete="off">
         <div className="flex flex-col">
           <div>
             <label
@@ -114,7 +102,7 @@ const SignUp = () => {
             </label>
             <input
               type="password"
-              id="user-password"
+              id="password-confirm"
               placeholder="confirm your password"
               onChange={(e) => handleConfirm(e)}
               className="appearance-none block w-full bg-gray-200 text-gray-700 rounded p-2 mb-2 leading-tight focus:outline-none focus:bg-white focus:border border-red-500"
