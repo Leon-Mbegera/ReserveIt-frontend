@@ -38,54 +38,57 @@ const SignIn = () => {
   };
 
   return (
-    <form
-      onSubmit={(e) => handleCredentials(e)}
-      className="signin"
-    >
-      <div className="flex flex-col">
-        <div>
-          <label
-            htmlFor="user-email"
-            className="block text-gray-500 font-bold md:text-left mb-1 md:mb-1 text-left"
+    <>
+      <h1 className="text-2xl font-semibold quicksand text-center mt-12 mb-2">Welcome back, Please Sign in to continue</h1>
+      <form
+        onSubmit={(e) => handleCredentials(e)}
+        className="signin"
+      >
+        <div className="flex flex-col">
+          <div>
+            <label
+              htmlFor="user-email"
+              className="block text-gray-500 font-bold md:text-left mb-1 md:mb-1 text-left"
+            >
+              Email
+            </label>
+            <input
+              type="email"
+              id="user-email"
+              onChange={(e) => handleEmail(e)}
+              placeholder="Enter your email address"
+              className="appearance-none block w-full bg-gray-200 text-gray-700 rounded p-2 mb-2 leading-tight focus:outline-none focus:bg-white focus:border border-red-500"
+            />
+          </div>
+          <div>
+            <label
+              htmlFor="user-password"
+              className="block text-gray-500 font-bold md:text-left mb-1 md:mb-1 text-left"
+            >
+              Password
+            </label>
+            <input
+              type="password"
+              id="user-password"
+              onChange={(e) => handlePassword(e)}
+              placeholder="Enter your password"
+              className="appearance-none block w-full bg-gray-200 text-gray-700 rounded p-2 mb-2 leading-tight focus:outline-none focus:bg-white focus:border border-red-500"
+            />
+          </div>
+          <p className="text-center mb-5 text-yellow-500">
+            <Link to="/signup">
+              Don&apos;t have an account?
+            </Link>
+          </p>
+          <button
+            type="submit"
+            className="bg-green hover:bg-blue-700 text-white font-bold rounded p-2 w-full self-center"
           >
-            Email
-          </label>
-          <input
-            type="email"
-            id="user-email"
-            onChange={(e) => handleEmail(e)}
-            placeholder="Enter your email address"
-            className="appearance-none block w-full bg-gray-200 text-gray-700 rounded p-2 mb-2 leading-tight focus:outline-none focus:bg-white focus:border border-red-500"
-          />
+            Sign in
+          </button>
         </div>
-        <div>
-          <label
-            htmlFor="user-password"
-            className="block text-gray-500 font-bold md:text-left mb-1 md:mb-1 text-left"
-          >
-            Password
-          </label>
-          <input
-            type="password"
-            id="user-password"
-            onChange={(e) => handlePassword(e)}
-            placeholder="Enter your password"
-            className="appearance-none block w-full bg-gray-200 text-gray-700 rounded p-2 mb-2 leading-tight focus:outline-none focus:bg-white focus:border border-red-500"
-          />
-        </div>
-        <p className="text-center mb-5 text-yellow-500">
-          <Link to="/signup">
-            Don&apos;t have an account?
-          </Link>
-        </p>
-        <button
-          type="submit"
-          className="bg-green hover:bg-blue-700 text-white font-bold rounded p-2 w-full self-center"
-        >
-          Sign in
-        </button>
-      </div>
-    </form>
+      </form>
+    </>
   );
 };
 
