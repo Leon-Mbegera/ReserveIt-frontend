@@ -58,7 +58,7 @@ const ReservationForm = ({ car, user, UpdateReservations }) => {
           </div>
           <div>
             <label htmlFor="model" className="block text-gray-500 font-bold md:text-left mb-1 md:mb-1 pr-4 text-left">Set Agreement:</label>
-            <textarea name="agreement" required onChange={(e) => setAgreement(e.target.value)} maxLength="65" className="appearance-none block w-full bg-gray-200 text-gray-700 rounded p-2 mb-3 leading-tight border focus:border-red-500 focus:bg-white focus:outline-none" />
+            <textarea name="agreement" required onChange={(e) => setAgreement(e.target.value)} maxLength="70" className="appearance-none block w-full bg-gray-200 text-gray-700 rounded p-2 mb-3 leading-tight border focus:border-red-500 focus:bg-white focus:outline-none" />
             <div className="flex flex-row justify-between">
               <div>
                 <label htmlFor="model" className="block text-gray-500 font-bold md:text-left mb-1 md:mb-1 pr-4 text-left">Select date:</label>

@@ -39,6 +39,12 @@
   font-weight: bold;
 }
 
+.signin,
+.signup {
+  width: 25%;
+  margin: 10% auto;
+}
+
 .wrapper {
   width: 100%;
 }
