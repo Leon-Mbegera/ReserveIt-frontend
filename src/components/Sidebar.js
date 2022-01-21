@@ -16,15 +16,15 @@ const Sidebar = ({ navigationLinks }) => {
       {!sideBar && (
       <div className="navbar">
         <FaBars
-          className="menu-bars"
+          className="menu-bars text-green"
           onClick={() => setSidebar(!sideBar)}
         />
       </div>
       )}
-      <nav className={sideBar ? 'left-2 top-0 bottom-0 flex flex-col h-screen items-center border-r-2 border-light-grey nav-menu active' : 'nav-menu deactive'}>
+      <nav className={sideBar ? 'left-2 top-0 bottom-0 flex flex-col h-screen items-center border-r-2 border-light-grey nav-menu active  bg-slate-50' : 'nav-menu deactive'}>
         <div className="navbar-toggler">
           <AiOutlineClose
-            className="menu-close"
+            className="menu-close text-green font-bold"
             onClick={() => setSidebar(!sideBar)}
           />
         </div>
