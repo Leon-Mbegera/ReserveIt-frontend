@@ -36,10 +36,10 @@ const MyReservations = () => {
           <h1 className="text-center text-2xl font-extrabold tracking-wider">My Reservations</h1>
           <p className="text-center text-xs font-bold text-stone-400">Confirmed Vehicle Reservations</p>
         </div>
-        <div className="flex flex-row flex-wrap justify-around space-x-8 space-y-3 my-4">
+        <div className="grid grid-cols-2 gap-4 my-4">
           {myReserves && myReserves.length ? (
             myReserves.map((each) => (
-              <div key={each.id} className="display w-5/12 flex border border-gray-400 rounded">
+              <div key={each.id} className="display flex border border-gray-400 rounded">
                 <div className="border-r border-gray-400 bg-cover w-3/6">
                   <img src={each.car.image} alt="model-pict" />
                 </div>
