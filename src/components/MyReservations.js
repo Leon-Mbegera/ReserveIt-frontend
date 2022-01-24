@@ -17,7 +17,7 @@ const MyReservations = () => {
 
   const handleDelete = (id) => {
     const accessToken = localStorage.getItem('accessToken');
-    fetch(`http://localhost:3000/reservations/${id}`, {
+    fetch(`https://damp-eyrie-37878.herokuapp.com/reservations/${id}`, {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json',

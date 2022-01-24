@@ -17,7 +17,7 @@ const ReservationForm = ({ car, user, UpdateReservations }) => {
     };
     setIsPending(true);
     const accessToken = localStorage.getItem('accessToken');
-    fetch('http://localhost:3000/reservations', {
+    fetch('https://damp-eyrie-37878.herokuapp.com//reservations', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

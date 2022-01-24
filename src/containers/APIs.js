@@ -1,7 +1,7 @@
 async function GetCarReservations(id) {
   try {
     const accessToken = localStorage.getItem('accessToken');
-    const response = await fetch(`http://localhost:3000/reservations/${id}`, {
+    const response = await fetch(`https://damp-eyrie-37878.herokuapp.com/reservations/${id}`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
@@ -21,7 +21,7 @@ async function GetCarReservations(id) {
 
 const GetMyReservations = async () => {
   const accessToken = localStorage.getItem('accessToken');
-  const response = await fetch('http://localhost:3000/reservations', {
+  const response = await fetch('https://damp-eyrie-37878.herokuapp.com/reservations', {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
@@ -33,7 +33,7 @@ const GetMyReservations = async () => {
 };
 
 const UserSignUp = async (username, email, password, confirm) => {
-  const response = await fetch('http://localhost:3000/auth/signup', {
+  const response = await fetch('https://damp-eyrie-37878.herokuapp.com/auth/signup', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
@@ -51,7 +51,7 @@ const UserSignUp = async (username, email, password, confirm) => {
 };
 
 const UserSignIn = async (email, password) => {
-  const response = await fetch('http://localhost:3000/auth/signin', {
+  const response = await fetch('https://damp-eyrie-37878.herokuapp.com/auth/signin', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
@@ -65,18 +65,6 @@ const UserSignIn = async (email, password) => {
   const data = await response.json();
   return data;
 };
-
-// const PostReservationDetails = (postData) => {
-//   const accessToken = localStorage.getItem('accessToken');
-//   fetch('http://localhost:3000/reservations', {
-//     method: 'POST',
-//     headers: {
-//       'Content-Type': 'application/json',
-//       Authorization: `Bearer ${accessToken}`,
-//     },
-//     body: JSON.stringify(postData),
-//   });
-// };
 
 export {
   GetCarReservations, GetMyReservations, UserSignUp, UserSignIn,

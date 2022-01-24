@@ -32,9 +32,9 @@ const Sidebar = ({ navigationLinks }) => {
           <h1 className="text-3xl font-extrabold underline tracking-wide">Vrooomm</h1>
         </div>
         <ul className="list-none mt-14">
-          {navigationLinks.map((element) => (
+          {navigationLinks.map((element, index) => (
             <li
-              key={element.type}
+              key={index.toString()}
               className={classNames([
                 'text-dark-grey p-2',
                 currentRoute === element && 'text-slate-50 bg-green p-2',
@@ -46,7 +46,7 @@ const Sidebar = ({ navigationLinks }) => {
               >
                 <Link
                   to={`/${element}`}
-                  className="font-bold"
+                  className="font-bold tracking-wide"
                 >
                   {element.toUpperCase()}
                 </Link>
