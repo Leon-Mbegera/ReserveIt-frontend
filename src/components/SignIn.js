@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate, Link } from 'react-router-dom';
-import alert from 'alert';
+import { useAlert } from 'react-alert';
 import { UserSignIn } from '../containers/APIs';
 import { saveCurrentUser } from '../actions/index';
 import useAuth from '../hooks/useAuth';
@@ -12,6 +12,7 @@ const SignIn = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const setAuthorized = useAuth()[1];
+  const alert = useAlert();
 
   const handleEmail = (e) => (
     setEmail(e.target.value)
@@ -22,13 +23,14 @@ const SignIn = () => {
   );
 
   const Authorization = (data) => {
-    if (data) {
+    if (data.token) {
       localStorage.setItem('accessToken', data.token);
       setAuthorized(data.token);
       dispatch(saveCurrentUser(data.username));
       navigate('/models');
-    } else {
-      alert("You're not registed yet, Please proceed to the sign up page!");
+      alert.success("You're successfully Logged in!");
+    } else if (data.error) {
+      alert.error(data.error);
     }
   };
 

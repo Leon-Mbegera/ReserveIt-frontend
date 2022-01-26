@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
+import { useAlert } from 'react-alert';
 import { UserSignUp } from '../containers/APIs';
 import { saveCurrentUser } from '../actions/index';
 import useAuth from '../hooks/useAuth';
@@ -13,6 +14,7 @@ const SignUp = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const setAuthorized = useAuth()[1];
+  const alert = useAlert();
 
   const handleUsername = (e) => (
     setName(e.target.value)
@@ -34,8 +36,11 @@ const SignUp = () => {
     if (data.token) {
       localStorage.setItem('accessToken', data.token);
       setAuthorized(data.token);
-      dispatch(saveCurrentUser(data.user.username));
+      dispatch(saveCurrentUser(data.username));
       navigate('/models');
+      alert.success("You've successfully  Signed Up!");
+    } else if (data.error) {
+      alert.error(data.error);
     }
   };
 

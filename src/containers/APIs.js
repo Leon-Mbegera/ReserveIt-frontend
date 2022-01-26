@@ -32,43 +32,57 @@ const GetMyReservations = async () => {
   return myreservations;
 };
 
-const UserSignUp = async (username, email, password, confirm) => {
-  const response = await fetch('http://localhost:3000/auth/signup', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({
-      user: {
-        username,
-        email,
-        password,
-        confirm,
+async function UserSignUp(username, email, password, confirm) {
+  try {
+    const response = await fetch('http://localhost:3000/auth/signup', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
       },
-    }),
-  });
+      body: JSON.stringify({
+        user: {
+          username,
+          email,
+          password,
+          confirm,
+        },
+      }),
+    });
+    if (!response.ok) {
+      throw new Error('Please fill in all the fields, and in a proper format!');
+    } else {
+      const data = await response.json();
+      return data;
+    }
+  } catch (error) {
+    return { error: error.message, data: null };
+  }
+}
 
-  const data = await response.json();
-  return data;
-};
-
-const UserSignIn = async (email, password) => {
-  const response = await fetch('http://localhost:3000/auth/signin', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({
-      auth: {
-        email,
-        password,
+async function UserSignIn(email, password) {
+  try {
+    const response = await fetch('http://localhost:3000/auth/signin', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
       },
-    }),
-  });
-
-  const data = await response.json();
-  return data;
-};
+      body: JSON.stringify({
+        auth: {
+          email,
+          password,
+        },
+      }),
+    });
+    if (!response.ok) {
+      throw new Error("You're not yet registered, Please proceed to Sign Up!");
+    } else {
+      const data = await response.json();
+      return data;
+    }
+  } catch (error) {
+    return { error: error.message, data: null };
+  }
+}
 
 const Authenticate = async (accessToken) => {
   const response = await fetch('http://localhost:3000/auth/authenticate', {
