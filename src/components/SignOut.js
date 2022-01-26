@@ -6,6 +6,7 @@ const SignOut = () => {
   const setAuthorized = useAuth()[1];
   useEffect(() => {
     setAuthorized(null);
+    localStorage.clear();
   }, []);
 
   return (
