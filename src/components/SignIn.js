@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate, Link } from 'react-router-dom';
+import alert from 'alert';
 import { UserSignIn } from '../containers/APIs';
 import { saveCurrentUser } from '../actions/index';
 import useAuth from '../hooks/useAuth';
@@ -26,6 +27,8 @@ const SignIn = () => {
       setAuthorized(data.token);
       dispatch(saveCurrentUser(data.username));
       navigate('/models');
+    } else {
+      alert("You're not registed yet, Please proceed to the sign up page!");
     }
   };
 
