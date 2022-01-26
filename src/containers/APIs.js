@@ -1,7 +1,7 @@
 async function GetCarReservations(id) {
   try {
     const accessToken = localStorage.getItem('accessToken');
-    const response = await fetch(`https://damp-eyrie-37878.herokuapp.com/reservations/${id}`, {
+    const response = await fetch(`http://localhost:3000/reservations/${id}`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
@@ -21,7 +21,7 @@ async function GetCarReservations(id) {
 
 const GetMyReservations = async () => {
   const accessToken = localStorage.getItem('accessToken');
-  const response = await fetch('https://damp-eyrie-37878.herokuapp.com/reservations', {
+  const response = await fetch('http://localhost:3000/reservations', {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
@@ -33,9 +33,11 @@ const GetMyReservations = async () => {
 };
 
 const UserSignUp = async (username, email, password, confirm) => {
-  const response = await fetch('https://damp-eyrie-37878.herokuapp.com/auth/signup', {
+  const response = await fetch('http://localhost:3000/auth/signup', {
     method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
+    headers: {
+      'Content-Type': 'application/json',
+    },
     body: JSON.stringify({
       user: {
         username,
@@ -51,9 +53,11 @@ const UserSignUp = async (username, email, password, confirm) => {
 };
 
 const UserSignIn = async (email, password) => {
-  const response = await fetch('https://damp-eyrie-37878.herokuapp.com/auth/signin', {
+  const response = await fetch('http://localhost:3000/auth/signin', {
     method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
+    headers: {
+      'Content-Type': 'application/json',
+    },
     body: JSON.stringify({
       auth: {
         email,
@@ -66,6 +70,18 @@ const UserSignIn = async (email, password) => {
   return data;
 };
 
+const Authenticate = async (accessToken) => {
+  const response = await fetch('http://localhost:3000/auth/authenticate', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(accessToken),
+  });
+  const data = await response.json();
+  return data;
+};
+
 export {
-  GetCarReservations, GetMyReservations, UserSignUp, UserSignIn,
+  GetCarReservations, GetMyReservations, UserSignUp, UserSignIn, Authenticate,
 };
