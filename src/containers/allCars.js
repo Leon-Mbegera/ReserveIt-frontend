@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import Carousel from 'react-elastic-carousel';
@@ -9,11 +9,13 @@ import '../App.css';
 const AllCars = () => {
   const { cars } = useSelector((state) => state);
   const dispatch = useDispatch();
+  const [Loading, setLoading] = useState(true);
 
   useEffect(() => {
     dispatch(
       fetchAllCars(),
     );
+    setLoading(false);
   }, []);
 
   const breakPoints = [
@@ -31,6 +33,7 @@ const AllCars = () => {
           <p className="text-center text-xs font-bold text-stone-400">Please select a Vehicle Model</p>
           <p className="text-center text-base font-bold text-stone-300 mb-6 mt-4">.................</p>
         </div>
+        {Loading && <h1>Loading...</h1>}
         <Carousel breakPoints={breakPoints}>
           {cars.data.map((car) => (
             <div key={`cars-${car.id}`} className="w-64">

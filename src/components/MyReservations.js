@@ -55,7 +55,7 @@ const MyReservations = () => {
                 </div>
               </div>
             ))
-          ) : <p>Just a sec...</p>}
+          ) : <p className="mx-2">You haven&apos;t made any reservation yet</p>}
         </div>
       </div>
     </>
