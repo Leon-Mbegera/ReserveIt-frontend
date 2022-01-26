@@ -2,10 +2,10 @@ import { Navigate, Outlet } from 'react-router-dom';
 import useAuth from '../hooks/useAuth';
 
 const RequireAuth = () => {
-  const [value] = useAuth();
+  const [authorize] = useAuth();
 
   return (
-    value ? <Outlet /> : <Navigate to="/signin" />
+    authorize ? <Outlet /> : <Navigate to="/signin" />
   );
 };
 
