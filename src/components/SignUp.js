@@ -33,14 +33,18 @@ const SignUp = () => {
   );
 
   const Authorization = (data) => {
-    if (data.token) {
-      localStorage.setItem('accessToken', data.token);
-      setAuthorized(data.token);
-      dispatch(saveCurrentUser(data.username));
-      navigate('/models');
-      alert.success("You've successfully  Signed Up!");
-    } else if (data.error) {
-      alert.error(data.error);
+    if (username && email && password && confirm) {
+      if (data.token) {
+        localStorage.setItem('accessToken', data.token);
+        setAuthorized(data.token);
+        dispatch(saveCurrentUser(data.username));
+        navigate('/models');
+        alert.success("You've successfully  Signed Up!");
+      } else if (data.error) {
+        alert.error(data.error);
+      }
+    } else {
+      alert.error('Please fill in all the required details!');
     }
   };
 
