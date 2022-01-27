@@ -1,7 +1,7 @@
 async function GetCarReservations(id) {
   try {
     const accessToken = localStorage.getItem('accessToken');
-    const response = await fetch(`http://localhost:3000/reservations/${id}`, {
+    const response = await fetch(`https://reserveit-api.herokuapp.com/reservations/${id}`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
@@ -21,7 +21,7 @@ async function GetCarReservations(id) {
 
 const GetMyReservations = async () => {
   const accessToken = localStorage.getItem('accessToken');
-  const response = await fetch('http://localhost:3000/reservations', {
+  const response = await fetch('https://reserveit-api.herokuapp.com/reservations', {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
@@ -34,7 +34,7 @@ const GetMyReservations = async () => {
 
 async function UserSignUp(username, email, password, confirm) {
   try {
-    const response = await fetch('http://localhost:3000/auth/signup', {
+    const response = await fetch('https://reserveit-api.herokuapp.com/auth/signup', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -61,7 +61,7 @@ async function UserSignUp(username, email, password, confirm) {
 
 async function UserSignIn(email, password) {
   try {
-    const response = await fetch('http://localhost:3000/auth/signin', {
+    const response = await fetch('https://reserveit-api.herokuapp.com/auth/signin', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -85,7 +85,7 @@ async function UserSignIn(email, password) {
 }
 
 const Authenticate = async (accessToken) => {
-  const response = await fetch('http://localhost:3000/auth/authenticate', {
+  const response = await fetch('https://reserveit-api.herokuapp.com/auth/authenticate', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
