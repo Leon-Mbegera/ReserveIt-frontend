@@ -1,21 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { useDispatch } from 'react-redux';
-import { Authenticate } from '../containers/APIs';
-import { saveCurrentUser } from '../actions/index';
 
 export const AuthContext = React.createContext();
 
 const Context = ({ children }) => {
   const [authorized, setAuthorized] = useState(null);
-  const dispatch = useDispatch();
 
   useEffect(() => {
     const accessToken = localStorage.getItem('accessToken');
-    Authenticate(accessToken).then((userData) => {
-      dispatch(saveCurrentUser(userData.current_user));
-      setAuthorized(userData.current_user);
-    });
+    setAuthorized(accessToken);
   }, []);
 
   return (

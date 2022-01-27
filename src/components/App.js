@@ -7,38 +7,42 @@ import SignIn from './SignIn';
 import SignUp from './SignUp';
 import MyReservations from './MyReservations';
 import Home from './Home';
-import navigationLinks from '../data/navigation';
+import navigation from '../data/navigation';
 import Layout from './Layout';
 import RequireAuth from './RequireAuth';
 import SignOut from './SignOut';
 
-const App = () => (
-  <BrowserRouter>
-    <div className="flex flex-row">
-      <div>
-        <Sidebar navigationLinks={navigationLinks} />
-      </div>
-      <div className="w-full">
-        <Routes>
-          <Route path="/" element={<Layout />}>
+const App = () => {
+  const navigationLinks = navigation();
 
-            {/* public routes */}
-            <Route exact path="/" element={<Home />} />
-            <Route exact path="/signup" element={<SignUp />} />
-            <Route exact path="/signin" element={<SignIn />} />
-            <Route exact path="/models" element={<AllCars />} />
-            <Route exact path="/signout" element={<SignOut />} />
+  return (
+    <BrowserRouter>
+      <div className="flex flex-row">
+        <div>
+          <Sidebar navigationLinks={navigationLinks} />
+        </div>
+        <div className="w-full">
+          <Routes>
+            <Route path="/" element={<Layout />}>
 
-            {/* protected routes */}
-            <Route element={<RequireAuth />}>
-              <Route exact path="/cars/:id" element={<SingleCar />} />
-              <Route exact path="/MyReservations" element={<MyReservations />} />
+              {/* public routes */}
+              <Route exact path="/" element={<Home />} />
+              <Route exact path="/signup" element={<SignUp />} />
+              <Route exact path="/signin" element={<SignIn />} />
+              <Route exact path="/models" element={<AllCars />} />
+              <Route exact path="/signout" element={<SignOut />} />
+
+              {/* protected routes */}
+              <Route element={<RequireAuth />}>
+                <Route exact path="/cars/:id" element={<SingleCar />} />
+                <Route exact path="/MyReservations" element={<MyReservations />} />
+              </Route>
             </Route>
-          </Route>
-        </Routes>
+          </Routes>
+        </div>
       </div>
-    </div>
-  </BrowserRouter>
-);
+    </BrowserRouter>
+  );
+};
 
 export default App;
