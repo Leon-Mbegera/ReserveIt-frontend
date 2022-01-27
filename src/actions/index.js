@@ -32,7 +32,7 @@ const fetchCarsFailure = (error) => ({
 
 const fetchAllCars = () => (dispatch) => {
   dispatch(fetchCarsRequest());
-  const endpoint = 'https://reserveit-api.herokuapp.com/cars';
+  const endpoint = 'http://localhost:3000/cars';
   axios.get(endpoint).then((response) => {
     const cars = response.data;
     dispatch(fetchCarsSuccess(cars));
@@ -42,7 +42,7 @@ const fetchAllCars = () => (dispatch) => {
 };
 
 const fetchEachCar = (id) => (dispatch) => {
-  const endpoint = `https://reserveit-api.herokuapp.com/cars/${id}`;
+  const endpoint = `http://localhost:3000/cars/${id}`;
   axios.get(endpoint).then((response) => {
     const car = response.data;
     dispatch(fetchCarInfo(car));
