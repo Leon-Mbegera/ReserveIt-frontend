@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 
 const CarReservations = ({ reservations, loading, error }) => (
-  <div className="reservations">
+  <>
     {error && <p>{error}</p>}
     {loading && <p>Loading...</p>}
     {reservations && reservations.length
@@ -12,7 +12,8 @@ const CarReservations = ({ reservations, loading, error }) => (
           <p>{object.date}</p>
         </div>
       )) : <p>There&apos;s no reservations made for this vehicle model</p>}
-  </div>
+  </>
+
 );
 
 CarReservations.propTypes = {

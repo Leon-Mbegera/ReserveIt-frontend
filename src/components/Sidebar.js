@@ -31,13 +31,13 @@ const Sidebar = ({ navigationLinks }) => {
         <div className="mt-3 company -rotate-12">
           <h1 className="text-3xl font-extrabold underline tracking-wide">Vrooomm</h1>
         </div>
-        <ul className="list-none mt-14">
+        <ul className="list-none mt-14 space-y-2">
           {navigationLinks.map((element, index) => (
             <li
               key={index.toString()}
               className={classNames([
-                'text-dark-grey p-2',
-                currentRoute === element && 'text-slate-50 bg-green p-2',
+                'text-dark-grey p-2 border border-2 border-purple-200 rounded',
+                currentRoute === element && 'text-slate-50 bg-green p-2 border-none',
               ])}
             >
               <button

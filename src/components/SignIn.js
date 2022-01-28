@@ -23,14 +23,18 @@ const SignIn = () => {
   );
 
   const Authorization = (data) => {
-    if (data.token) {
-      localStorage.setItem('accessToken', data.token);
-      setAuthorized(data.token);
-      dispatch(saveCurrentUser(data.username));
-      navigate('/models');
-      alert.success("You're successfully Logged in!");
-    } else if (data.error) {
-      alert.error(data.error);
+    if (email && password) {
+      if (data.token) {
+        localStorage.setItem('accessToken', data.token);
+        setAuthorized(data.token);
+        dispatch(saveCurrentUser(data.username));
+        navigate('/models');
+        alert.success("You're successfully Logged in!");
+      } else if (data.error) {
+        alert.error(data.error);
+      }
+    } else {
+      alert.error('Please fill in all the fields!');
     }
   };
 
