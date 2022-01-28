@@ -4,7 +4,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Dongle:wght@300;400;700&family=Lato:wght@900&family=Pacifico&display=swap');
 
 .company {
- font-family: 'Pacifico', cursive;
+  font-family: 'Pacifico', cursive;
 }
 
 .nav-menu {
@@ -70,17 +70,17 @@
 }
 
 .display:hover {
-  box-shadow: 5px 7px 10px rgba(0,0,0,0.1);
+  box-shadow: 5px 7px 10px rgba(0, 0, 0, 0.1);
 }
 
 .dongle {
-  font-family: 'Dongle';
+  font-family: 'Dongle', sans-serif;
 }
 
 .quicksand {
-  font-family: 'Quicksand';
+  font-family: 'Quicksand', sans-serif;
 }
 
 .lato {
-  font-family: 'Lato';
+  font-family: 'Lato', sans-serif;
 }
