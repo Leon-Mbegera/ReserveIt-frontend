@@ -35,7 +35,7 @@ const AllCars = () => {
           <p className="text-center text-xs font-bold text-stone-400">Please select a Vehicle Model</p>
           <p className="text-center text-base font-bold text-stone-300 mb-6 mt-4">.................</p>
         </div>
-        {Loading && <h1 className="text-center my-2 font-bold">Loading...</h1>}
+        {Loading && <h1 className="text-center my-4 font-bold">Loading...</h1>}
         <Carousel breakPoints={breakPoints}>
           {cars.data.map((car) => (
             <div key={`cars-${car.id}`} className="w-64">
