@@ -100,12 +100,16 @@ const SingleCar = () => {
           </div>
         </div>
         <div className="grid col-span-2 row-span-3 border-x-2 px-6">
-          <h1 className="text-xl font-bold tracking-wide my-2">Reservations</h1>
-          <CarReservations
-            reservations={reserve}
-            loading={isPending}
-            error={error}
-          />
+          <div>
+            <h1 className="text-xl font-bold tracking-wide my-2">Reservations</h1>
+          </div>
+          <div className="reservations">
+            <CarReservations
+              reservations={reserve}
+              loading={isPending}
+              error={error}
+            />
+          </div>
         </div>
         <div className="grid col-span-5">
           <ReservationForm car={car} user={user} UpdateReservations={UpdateReservations} />

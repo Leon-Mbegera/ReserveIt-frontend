@@ -31,7 +31,7 @@ const AllCars = () => {
     <>
       <div className="wrapper">
         <div className="mt-16 mb-10">
-          <h1 className="text-center text-2xl font-extrabold tracking-wider">LATEST MODELS</h1>
+          <h1 className="text-center text-3xl font-extrabold tracking-wider">LATEST MODELS</h1>
           <p className="text-center text-xs font-bold text-stone-400">Please select a Vehicle Model</p>
           <p className="text-center text-base font-bold text-stone-300 mb-6 mt-4">.................</p>
         </div>

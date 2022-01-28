@@ -1,10 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Dongle:wght@300&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Dongle:wght@300;400;500;600;700&family=Pacifico&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
-
-/* .home {
-  background-image: 'url(./assets/images/home.jpg)';
-} */
+@import url('https://fonts.googleapis.com/css2?family=Dongle:wght@300;400;700&family=Lato:wght@900&family=Pacifico&display=swap');
 
 .company {
  font-family: 'Pacifico', cursive;
@@ -58,10 +55,14 @@
   min-height: 192px;
 }
 
-.specifications,
-.reservations {
+.specifications {
   font-family: 'Dongle', sans-serif;
   font-size: 1.5em;
+}
+
+.reservations {
+  font-size: 1.5em;
+  font-family: 'Dongle', sans-serif;
 }
 
 .display {
@@ -78,4 +79,8 @@
 
 .quicksand {
   font-family: 'Quicksand';
+}
+
+.lato {
+  font-family: 'Lato';
 }

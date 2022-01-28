@@ -35,8 +35,8 @@ const MyReservations = () => {
 
   return (
     <>
-      <div className="my-10">
-        <h1 className="text-center text-2xl font-extrabold tracking-wider">My Reservations</h1>
+      <div className="mt-16 mb-12">
+        <h1 className="text-center text-3xl font-extrabold tracking-wider lato">My Reservations</h1>
         <p className="text-center text-xs font-bold text-stone-400">Confirmed Vehicle Reservations</p>
       </div>
       {Loading && <p className="text-center font-xl">Loading...</p>}
@@ -61,7 +61,7 @@ const MyReservations = () => {
           ))}
         </div>
       )
-        : !Loading && <p className="text-center text-xl quicksand">You haven&apos;t made any reservation yet :)</p>}
+        : !Loading && <p className="text-center text-xl quicksand">You haven&apos;t made any reservation yet &nbsp;: )</p>}
     </>
   );
 };
