@@ -36,9 +36,9 @@ const MyReservations = () => {
           <h1 className="text-center text-2xl font-extrabold tracking-wider">My Reservations</h1>
           <p className="text-center text-xs font-bold text-stone-400">Confirmed Vehicle Reservations</p>
         </div>
-        <div className="grid grid-cols-2 gap-4 my-4">
-          {myReserves && myReserves.length ? (
-            myReserves.map((each) => (
+        {myReserves && myReserves.length ? (
+          <div className="grid grid-cols-2 gap-4 my-4">
+            {myReserves.map((each) => (
               <div key={each.id} className="display flex border border-gray-400 rounded">
                 <div className="border-r border-gray-400 bg-cover w-3/6">
                   <img src={each.car.image} alt="model-pict" />
@@ -54,9 +54,10 @@ const MyReservations = () => {
                   <button type="submit" onClick={() => handleDelete(each.id)} className="bg-green hover:bg-blue-700 text-white font-bold p-1 rounded w-full">delete</button>
                 </div>
               </div>
-            ))
-          ) : <p className="mx-2">You haven&apos;t made any reservation yet</p>}
-        </div>
+            ))}
+          </div>
+        )
+          : <p className="text-center text-xl">You haven&apos;t made any reservation yet</p>}
       </div>
     </>
   );
